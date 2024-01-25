@@ -1,0 +1,76 @@
+{
+  "DOWNLOAD": {
+    "AN_OVERV.PDF": {
+      "name": "AN_OVERV.PDF",
+      "checksum": "t1ZYbj77xly1A6StpZQGQ4z77Yw=",
+      "status": "lost"
+    },
+    "DATA_MAN.PDF": {
+      "name": "DATA_MAN.PDF",
+      "checksum": "1h3KuosdFbe6fEU7MllnNN4Oxwg=",
+      "status": "original"
+    }
+  },
+  "Desktop": {
+    "FILE_000.DOC": {
+      "name": "FILE_000.DOC",
+      "checksum": "2ObJgl0zkU4OFXwLNKMGerdhxag=",
+      "status": "original"
+    },
+    "ANOTHER": {
+      "D2603682.DUM": {
+        "name": "D2603682.DUM",
+        "checksum": "NFrx0KDUZqhWCAKN5zqVKgWvwQ4=",
+        "status": "lost"
+      }
+    },
+    "CONSTRUC.PDF": {
+      "name": "CONSTRUC.PDF",
+      "checksum": "jqFlumgrNmjPqdWIM8PyOrZ63oc=",
+      "status": "original"
+    }
+  },
+  "AppData": {
+    "Local": {
+      "Microsoft": {
+        "OneDrive": {
+          "18.143.0717.0002": {
+            "mk": {
+              "FileSync.LocalizedResources.dll.mui": {
+                "name": "FileSync.LocalizedResources.dll.mui",
+                "checksum": "S0KIECaze2nmqQ+D4CkGcZuPG48=",
+                "status": "original"
+              }
+            }
+          },
+          "18.143.0717.0002_10": {
+            "qml": {
+              "QtQuick": {
+                "Controls.2": {
+                  "Dialog.qml": {
+                    "name": "Dialog.qml",
+                    "checksum": "ZIIv7Eu9Wo7AG3GYRFiesZeTdFs=",
+                    "status": "lost"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "Media Player": {
+          "Sync Playlists": {
+            "en-US": {
+              "00039924": {
+                "01_Music_auto_rated_at_5_stars.wpl": {
+                  "name": "01_Music_auto_rated_at_5_stars.wpl",
+                  "checksum": "7RC/fPPfYbqV9F3KOQQkc+/gcZc=",
+                  "status": "original"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

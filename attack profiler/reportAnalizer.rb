@@ -2,118 +2,76 @@
 # Analyze the results and create JSON whit a simple % ratio lost/save
 # Ranflood - https://ranflood.netlify.app/
 
-require 'csv'
+require 'json'
 
-# Estrai estensione dal percorso file
-def estrai_estensione(file_path)
-  # Estrae la parte prima della virgola
-  parte_prima_virgola = file_path.split(',').first
+def crea_albero_directory(file_path)
+  albero = {}
 
-  # Estrae l'estensione dal nome del file
-  estensione = File.extname(parte_prima_virgola)
+  File.foreach(file_path) do |linea|
+    riga_split = linea.chomp.split(',')
+    elementi_percorso = riga_split[0].split('/')
 
-  return estensione
+    nodo_corrente = albero
+
+    # Scorri tutti gli elementi (cartelle) tranne l'ultimo che è il file
+    # ||= assegna un valore solo se è "nil" o "false"
+    elementi_percorso[0...-1].each do |elemento|
+      nodo_corrente[elemento] ||= {}
+      nodo_corrente = nodo_corrente[elemento]
+    end
+
+    # Aggiungi il file al ramo con status "lost" a tutti, lo modifico successivamente se lo trovo
+    nodo_corrente[elementi_percorso.last] = { 'name' => elementi_percorso.last, 'checksum' => riga_split[1], 'status' => 'lost' }
+  end
+
+  albero
 end
 
-# Verifica se l'utente ha fornito i percorsi dei file come argomenti
+def aggiorna_albero_directory(albero, file_path_2)
+  File.foreach(file_path_2) do |linea|
+    riga_split = linea.chomp.split(',')
+    elementi_percorso = riga_split[0].split('/')
+
+    nodo_corrente = albero
+
+    # Scorri tutti gli elementi (cartelle) tranne l'ultimo che è il file
+    elementi_percorso[0...-1].each do |elemento|
+      nodo_corrente = nodo_corrente[elemento]
+      break if nodo_corrente.nil?  # Se il percorso non esiste, esci dal ciclo
+    end
+
+    # Se il file esiste, aggiorna lo status
+    if nodo_corrente && nodo_corrente[elementi_percorso.last]
+      if nodo_corrente[elementi_percorso.last]['checksum'] == riga_split[1]
+        nodo_corrente[elementi_percorso.last]['status'] = 'original'
+      else
+        nodo_corrente[elementi_percorso.last]['status'] = 'replicated'
+      end
+    end
+  end
+
+  albero
+end
+
+def salva_json(albero, file_output)
+  json_data = JSON.pretty_generate(albero)
+
+  File.open(file_output, 'w') do |file|
+    file.puts(json_data)
+  end
+end
+
 if ARGV.length != 2
-  puts "Usage: ruby reportAnalizer.rb <percorso_file_1> <percorso_file_2>"
-  exit
+  puts "Usage: ruby reportAnalizer.rb <file_input1> <file_input2>"
+  exit(1)
 end
 
-# Prende i percorsi dei file dagli argomenti della linea di comando
-file_path_1, file_path_2 = ARGV
+file_input_1 = ARGV[0]
+file_input_2 = ARGV[1]
+file_output = 'directory_tree.json'
 
-# Verifica se i file esistono
-unless File.exist?(file_path_1) && File.exist?(file_path_2)
-  puts "Almeno uno dei file non esiste. Verifica i percorsi e riprova."
-  exit
-end
+albero_directory = crea_albero_directory(file_input_1)
+albero_directory = aggiorna_albero_directory(albero_directory, file_input_2)
+salva_json(albero_directory, file_output)
 
-# Conta il numero di righe nel file
-numero_righe_1 = File.readlines(file_path_1).size
-numero_righe_2 = File.readlines(file_path_2).size
-
-# Inizializza un hash per tenere traccia delle cartelle e delle righe per ciascun file
-cartelle_righe_file_1 = Hash.new(0)
-cartelle_righe_file_2 = Hash.new(0)
-estensioni_file_1 = Hash.new(0)
-estensioni_file_2 = Hash.new(0)
-
-# Legge il primo file e conta le righe per ciascuna cartella
-File.foreach(file_path_1) do |riga|
-  # Estrae la cartella dal percorso del file
-  percorsi = riga.split(',')[0].split('/')
-  
-  # Se ci sono almeno due cartelle, incrementa il conteggio per la prima cartella
-  if percorsi.length >= 1
-    cartelle_righe_file_1[percorsi[0]] += 1
-  end
-
-  estensioni_file_1[estrai_estensione(riga)] += 1
-end
-
-# Legge il secondo file e conta le righe per ciascuna cartella
-File.foreach(file_path_2) do |riga|
-  # Estrae la cartella dal percorso del file
-  percorsi = riga.split(',')[0].split('/')
-  
-  # Se ci sono almeno due cartelle, incrementa il conteggio per la prima cartella
-  if percorsi.length >= 1
-    cartelle_righe_file_2[percorsi[0]] += 1
-  end
-
-  estensioni_file_2[estrai_estensione(riga)] += 1
-end
-
-puts "Folder;WM baseline;WM tested;% saved"
-puts  "Total;#{numero_righe_1};#{numero_righe_2};#{((numero_righe_2.to_f / numero_righe_1) * 100).round(2)}"
-
-risultati = []
-risultati << {
-  'Folder' => 'Total',
-  'WM baseline' => numero_righe_1,
-  'WM tested' => numero_righe_2,
-  'R% saved' => ((numero_righe_2.to_f / numero_righe_1) * 100).round(2),
-}
-
-cartelle_righe_file_1.keys.each do |cartella|  
-  righe_file_1 = cartelle_righe_file_1[cartella]
-  righe_file_2 = cartelle_righe_file_2[cartella]
-  percentuale = (righe_file_2.to_f / righe_file_1) * 100
-
-  puts "#{cartella};#{righe_file_1};#{righe_file_2};#{percentuale.round(2)}"
-
-  risultati << {
-    'Folder' => cartella,
-    'WM baseline' => righe_file_1,
-    'WM tested' => righe_file_2,
-    'R% saved' => ((righe_file_2.to_f / righe_file_1) * 100).round(2),
-  }
-
-end
-
-estensioni_file_1.keys.each do |estensione|  
-  estensione_file_1 = estensioni_file_1[estensione]
-  estensione_file_2 = estensioni_file_2[estensione]
-  percentuale = (estensione_file_2.to_f / estensione_file_1) * 100
-
-  puts "#{estensione};#{estensione_file_1};#{estensione_file_2};#{percentuale.round(2)}"
-
-  risultati << {
-    'Folder' => estensione,
-    'WM baseline' => estensione_file_1,
-    'WM tested' => estensione_file_2,
-    'R% saved' => ((estensione_file_2.to_f / estensione_file_1) * 100).round(2),
-  }
-
-end
-
-output_csv = 'Analyses-' + file_path_2 + '.csv'
-
-CSV.open(output_csv, 'w', write_headers: true, headers: risultati.first.keys) do |csv|
-  risultati.each { |risultato| csv << risultato.values }
-end
-
-
-
+puts "Albero delle directory salvato in #{file_output}"
