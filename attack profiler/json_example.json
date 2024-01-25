@@ -1,0 +1,39 @@
+{
+  "ransomware": "WannaCry",
+  "ranflood delay": 60,
+  "strategy": "random",
+  [
+    {
+      "root": "AppData",
+      "files": [
+        {
+          "name": "ciao.pdf",
+          "checksum": "KTLhG96aGQkJKbYVqnrcPMk0R0Q=",
+          "status": "original"
+        },
+        {
+          "name": "ciao.pdf",
+          "status": "lost"
+        },
+        {
+          "name": "pippo.pdf",
+          "checksum": "KTLhG96aGQkJKbYVqnrcPMk0R0Q",
+          "replica": "pippo_creato.pdf",
+          "status": "replicated"
+        }
+      ],
+      "folder": [
+        {
+          "root": "Roaming",
+          "files": [],
+          "folders": [
+            {...
+            }
+          ]
+        ]
+      },
+      {
+        "root": "Desktop", ...
+      }
+    ]
+  }
