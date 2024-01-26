@@ -8,7 +8,7 @@
     "DATA_MAN.PDF": {
       "name": "DATA_MAN.PDF",
       "checksum": "1h3KuosdFbe6fEU7MllnNN4Oxwg=",
-      "status": "original"
+      "status": "lost"
     }
   },
   "Desktop": {
@@ -21,7 +21,8 @@
       "D2603682.DUM": {
         "name": "D2603682.DUM",
         "checksum": "NFrx0KDUZqhWCAKN5zqVKgWvwQ4=",
-        "status": "lost"
+        "status": "replicated",
+        "replicated_name": "D2603682_replica.DUM"
       }
     },
     "CONSTRUC.PDF": {
@@ -64,7 +65,7 @@
                 "01_Music_auto_rated_at_5_stars.wpl": {
                   "name": "01_Music_auto_rated_at_5_stars.wpl",
                   "checksum": "7RC/fPPfYbqV9F3KOQQkc+/gcZc=",
-                  "status": "original"
+                  "status": "lost"
                 }
               }
             }

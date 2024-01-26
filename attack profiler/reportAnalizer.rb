@@ -7,8 +7,8 @@ require 'json'
 def crea_albero_directory(file_path)
   albero = {}
 
-  File.foreach(file_path) do |linea|
-    riga_split = linea.chomp.split(',')
+  File.foreach(file_path) do |riga|
+    riga_split = riga.chomp.split(',')
     elementi_percorso = riga_split[0].split('/')
 
     nodo_corrente = albero
@@ -27,27 +27,43 @@ def crea_albero_directory(file_path)
   albero
 end
 
+def aggiorna_status(albero, nome, checksum)
+  albero.each_value do |sottoalbero|
+    risultato = trova_in_sottoalbero(sottoalbero, nome, checksum)
+    return risultato if risultato
+  end
+
+  false
+end
+
+def trova_in_sottoalbero(sottoalbero, nome, checksum)
+  sottoalbero.each do |file, dettagli|
+    if dettagli.is_a?(Hash) && dettagli['name'] == nome && dettagli['checksum'] == checksum
+      dettagli['status'] = 'original'
+    elsif dettagli.is_a?(Hash) && dettagli.key?('name') && dettagli['checksum'] == checksum
+      dettagli['status'] = 'replicated' 
+      dettagli['replicated_name'] = nome 
+    elsif dettagli.is_a?(Hash)
+      risultato = trova_in_sottoalbero(dettagli, nome, checksum)
+      return risultato if risultato
+    end
+  end
+
+  false
+end
+
+
 def aggiorna_albero_directory(albero, file_path_2)
-  File.foreach(file_path_2) do |linea|
-    riga_split = linea.chomp.split(',')
+  File.foreach(file_path_2) do |riga|
+    riga_split = riga.chomp.split(',')
     elementi_percorso = riga_split[0].split('/')
 
-    nodo_corrente = albero
+    nome_file = elementi_percorso.last.to_s 
+    checksum = riga_split[1].to_s 
 
-    # Scorri tutti gli elementi (cartelle) tranne l'ultimo che è il file
-    elementi_percorso[0...-1].each do |elemento|
-      nodo_corrente = nodo_corrente[elemento]
-      break if nodo_corrente.nil?  # Se il percorso non esiste, esci dal ciclo
-    end
+    aggiorna_status(albero, nome_file, checksum)
 
-    # Se il file esiste, aggiorna lo status
-    if nodo_corrente && nodo_corrente[elementi_percorso.last]
-      if nodo_corrente[elementi_percorso.last]['checksum'] == riga_split[1]
-        nodo_corrente[elementi_percorso.last]['status'] = 'original'
-      else
-        nodo_corrente[elementi_percorso.last]['status'] = 'replicated'
-      end
-    end
+    
   end
 
   albero
