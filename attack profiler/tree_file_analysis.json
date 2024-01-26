@@ -1,4 +1,7 @@
 {
+  "ransomware": "esempioWannaCry",
+  "ranflood_delay": "180",
+  "strategy": "ON_THE_FLY",
   "DOWNLOAD": {
     "AN_OVERV.PDF": {
       "name": "AN_OVERV.PDF",

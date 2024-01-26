@@ -4,10 +4,10 @@
 
 require 'json'
 
-def crea_albero_directory(file_path)
-  albero = {}
+def crea_albero_directory(file_input_1)
 
-  File.foreach(file_path) do |riga|
+  albero = {}
+  File.foreach(file_input_1) do |riga|
     riga_split = riga.chomp.split(',')
     elementi_percorso = riga_split[0].split('/')
 
@@ -69,10 +69,10 @@ def aggiorna_albero_directory(albero, file_path_2)
   albero
 end
 
-def salva_json(albero, file_output)
+def salva_json(albero, nome_file_output)
   json_data = JSON.pretty_generate(albero)
 
-  File.open(file_output, 'w') do |file|
+  File.open(nome_file_output, 'w') do |file|
     file.puts(json_data)
   end
 end
@@ -84,10 +84,22 @@ end
 
 file_input_1 = ARGV[0]
 file_input_2 = ARGV[1]
-file_output = 'tree_file_analysis.json'
+nome_file_output = 'tree_file_analysis.json'
 
 albero_directory = crea_albero_directory(file_input_1)
 albero_directory = aggiorna_albero_directory(albero_directory, file_input_2)
-salva_json(albero_directory, file_output)
 
-puts "Albero delle directory salvato in #{file_output}"
+
+nome_file_2_split = file_input_2.split('-')
+parametri_test = {  
+  "ransomware"  =>  nome_file_2_split[0], 
+  "ranflood_delay"  =>  nome_file_2_split[1], 
+  "strategy"  =>  nome_file_2_split[2]
+}
+
+# unisco i due hash info test  e albero cartelle
+albero_directory =  parametri_test.merge(albero_directory)
+
+salva_json(albero_directory, nome_file_output)
+
+puts "Albero delle directory salvato in #{nome_file_output}"
