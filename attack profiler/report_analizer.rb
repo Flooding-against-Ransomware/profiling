@@ -84,7 +84,7 @@ end
 
 file_input_1 = ARGV[0]
 file_input_2 = ARGV[1]
-file_output = 'directory_tree.json'
+file_output = 'tree_file_analysis.json'
 
 albero_directory = crea_albero_directory(file_input_1)
 albero_directory = aggiorna_albero_directory(albero_directory, file_input_2)
