@@ -1,6 +1,7 @@
 # The script takes as input the total list of files on the reference VM and the result of the FileChecker. 
 # Analyze the results and create JSON whit a simple % ratio lost/save
 # Ranflood - https://ranflood.netlify.app/
+# https://notes.inria.fr/fEzRW8KJTM-Jr7vz2FHoiw?both#
 
 require 'json'
 
