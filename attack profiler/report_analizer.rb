@@ -5,70 +5,109 @@
 
 require 'json'
 
-def crea_albero_directory(file_input_1)
 
-  albero = {}
-  File.foreach(file_input_1) do |riga|
-    riga_split = riga.chomp.split(',')
-    elementi_percorso = riga_split[0].split('/')
+def crea_struct(file_path)
+  risultato = {}
 
-    nodo_corrente = albero
+  # Leggi il file linea per linea
+  File.foreach(file_path) do |linea|
+    # Divide la linea in percorso e hash
+    percorso, hash = linea.chomp.split(',')
 
-    # Scorri tutti gli elementi (cartelle) tranne l'ultimo che è il file
-    # ||= assegna un valore solo se è "nil" o "false"
-    elementi_percorso[0...-1].each do |elemento|
-      nodo_corrente[elemento] ||= {}
-      nodo_corrente = nodo_corrente[elemento]
-    end
-
-    # Aggiungi il file al ramo con status "lost" a tutti, lo modifico successivamente se lo trovo
-    nodo_corrente[elementi_percorso.last] = { 'name' => elementi_percorso.last, 'checksum' => riga_split[1], 'status' => 'lost' }
+    # Aggiunge l'elemento alla struttura
+    risultato[hash] ||= []  # Inizializza l'array se non esiste già
+    risultato[hash] << percorso
   end
 
-  albero
+  return risultato
 end
 
-def aggiorna_status(albero, nome, checksum)
-  albero.each_value do |sottoalbero|
-    risultato = trova_in_sottoalbero(sottoalbero, nome, checksum)
-    return risultato if risultato
-  end
+def unisci_strutture(struttura1, struttura2)
+  risultato = {}
 
-  false
-end
-
-def trova_in_sottoalbero(sottoalbero, nome, checksum)
-  sottoalbero.each do |file, dettagli|
-    if dettagli.is_a?(Hash) && dettagli['name'] == nome && dettagli['checksum'] == checksum
-      dettagli['status'] = 'original'
-    elsif dettagli.is_a?(Hash) && dettagli.key?('name') && dettagli['checksum'] == checksum
-      dettagli['status'] = 'replicated' 
-      dettagli['replicated_name'] = nome 
-    elsif dettagli.is_a?(Hash)
-      risultato = trova_in_sottoalbero(dettagli, nome, checksum)
-      return risultato if risultato
-    end
-  end
-
-  false
-end
-
-
-def aggiorna_albero_directory(albero, file_path_2)
-  File.foreach(file_path_2) do |riga|
-    riga_split = riga.chomp.split(',')
-    elementi_percorso = riga_split[0].split('/')
-
-    nome_file = elementi_percorso.last.to_s 
-    checksum = riga_split[1].to_s 
-
-    aggiorna_status(albero, nome_file, checksum)
-
+  # Unisce i dati dalla struttura 1
+  struttura1.each do |hash, path1|
+    info = { "original" => path1.first, "status" => "", "replicas" => [] }
     
+    # L'hash esiste anche nella struttura 2
+    if struttura2.key?(hash)
+      path2 = struttura2[hash]
+
+      # Il percorso di path1 è presente anche in path2
+      if path2.include?(path1.first)        
+        info["status"] = "pristine"
+        info["replicas"] = path2 #  Aggiungo anche le eventuali repliche
+      else
+        info["status"] = "replica"
+        info["replicas"] = path2
+      end
+    else
+      # L'hash non esiste nella struttura 2
+      info["status"] = "lost"
+    end
+
+    risultato[hash] = info
   end
 
-  albero
+  # Aggiungo le info dalla struttura 2
+  struttura2.each do |hash, path2|
+    unless risultato.key?(hash)
+      # L'hash non esiste nella struttura 1
+      risultato[hash] = {
+        "original" => "",
+        "status" => "replica",
+        "replicas" => path2
+      }
+    end
+  end
+
+  return risultato
 end
+
+
+def crea_albero(input_hash)
+  output_hash = {  }
+  # output_hash = { "folders" => {} }
+
+  input_hash.each do |hash, info|
+    original_path = info["original"]
+    status = info["status"]
+    replicas = info["replicas"]
+
+    # Estrai il nome del file dalla path
+    file_name = File.basename(original_path)
+
+    # Divide la path in cartelle
+    path_parts = File.dirname(original_path).split("/")
+
+
+
+    # Inizializza la struttura se non esiste
+    current_folder = output_hash
+    # Serve per avere il valore della cartella precedente in modo da metterci i file
+    parent_folder = nil
+
+    path_parts.each do |folder|
+      current_folder[folder] ||= { "folders" => {} , "files" => {} }
+      parent_folder = current_folder
+      current_folder = current_folder[folder]["folders"]
+    end
+
+    # Inizializzo "files"
+    current_folder["files"] ||= {}
+    # Aggiungi il file corrente
+    current_folder["files"][file_name] = {
+      "name" => file_name,
+      "checksum" => hash,
+      "status" => status,
+      "replicas" => replicas
+    }
+
+  end
+
+  return output_hash
+end
+
 
 def salva_json(albero, nome_file_output)
   json_data = JSON.pretty_generate(albero)
@@ -87,9 +126,18 @@ file_input_1 = ARGV[0]
 file_input_2 = ARGV[1]
 nome_file_output = 'tree_file_analysis.json'
 
-albero_directory = crea_albero_directory(file_input_1)
-albero_directory = aggiorna_albero_directory(albero_directory, file_input_2)
+struct_base = crea_struct(file_input_1)
+puts struct_base
+struct_contrasto = crea_struct(file_input_2)
+puts struct_contrasto
 
+puts "-----------------------"
+
+struct_risultato = unisci_strutture(struct_base, struct_contrasto)
+puts struct_risultato
+
+# elaborazione dell'hash in albero cartelle - file
+struct_albero = crea_albero(struct_risultato)
 
 nome_file_2_split = file_input_2.split('-')
 parametri_test = {  
@@ -99,8 +147,8 @@ parametri_test = {
 }
 
 # unisco i due hash info test  e albero cartelle
-albero_directory =  parametri_test.merge(albero_directory)
+struct_albero =  parametri_test.merge(struct_albero)
 
-salva_json(albero_directory, nome_file_output)
+salva_json(struct_albero, nome_file_output)
 
 puts "Albero delle directory salvato in #{nome_file_output}"
