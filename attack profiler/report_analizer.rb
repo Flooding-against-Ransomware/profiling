@@ -88,7 +88,7 @@ def crea_albero(input_hash)
     parent_folder = nil
 
     path_parts.each do |folder|
-      current_folder[folder] ||= { "folders" => {} , "files" => {} }
+      current_folder[folder] ||= { "folders" => {}  }
       parent_folder = current_folder
       current_folder = current_folder[folder]["folders"]
     end
@@ -108,12 +108,25 @@ def crea_albero(input_hash)
   return output_hash
 end
 
+# sposta di un livello in alto "files" nel JSON
+def organizza_files(albero_json)
+  result = {}
+
+  albero_json.each do |key, value|
+    if value.is_a?(Hash) && value.key?("folders") && value["folders"].key?("files")
+      files = value["folders"].delete("files")
+      value["files"] = files
+    end
+
+    result[key] = value.is_a?(Hash) ? organizza_files(value) : value
+  end
+
+  result
+end
 
 def salva_json(albero, nome_file_output)
-  json_data = JSON.pretty_generate(albero)
-
   File.open(nome_file_output, 'w') do |file|
-    file.puts(json_data)
+    file.puts(albero)
   end
 end
 
@@ -146,9 +159,18 @@ parametri_test = {
   "strategy"  =>  nome_file_2_split[2]
 }
 
-# unisco i due hash info test  e albero cartelle
-struct_albero =  parametri_test.merge(struct_albero)
 
-salva_json(struct_albero, nome_file_output)
+# trasformo in JSON
+# struct_albero_JSON = JSON.pretty_generate(struct_albero)
+
+# puts struct_albero_JSON
+
+# sposto tutte le chiavi "files" di un livello in alto in modo da rispettare il formato desiderato
+struct_albero_JSON = JSON.pretty_generate(organizza_files(struct_albero))
+
+# unisco i due hash info test  e albero cartelle
+struct_albero_JSON =  parametri_test.merge(struct_albero_JSON)
+
+salva_json(struct_albero_JSON, nome_file_output)
 
 puts "Albero delle directory salvato in #{nome_file_output}"
