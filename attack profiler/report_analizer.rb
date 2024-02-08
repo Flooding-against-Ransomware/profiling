@@ -66,8 +66,8 @@ end
 
 
 def crea_albero(input_hash)
-  output_hash = {  }
-  # output_hash = { "folders" => {} }
+  # output_hash = {  }
+  output_hash = { "files" => {} , "folders"  =>  {} }
 
   input_hash.each do |hash, info|
     original_path = info["original"]
@@ -80,51 +80,91 @@ def crea_albero(input_hash)
     # Divide la path in cartelle
     path_parts = File.dirname(original_path).split("/")
 
-
-
     # Inizializza la struttura se non esiste
-    current_folder = output_hash
-    # Serve per avere il valore della cartella precedente in modo da metterci i file
-    parent_folder = nil
+    current_folder = output_hash["folders"]
+    
+    # path_parts.each do |folder|
+    #   current_folder[folder] ||= { "folders" => {}  }
+    #   current_folder = current_folder[folder]["folders"]
+    # end
 
-    path_parts.each do |folder|
-      current_folder[folder] ||= { "folders" => {}  }
-      parent_folder = current_folder
-      current_folder = current_folder[folder]["folders"]
+    # Verifico se il percorso contiene il carattere "/", es non lo contiene è nella root
+    if original_path.include?("/")
+      # Inizializza la struttura se non esiste
+      current_folder = output_hash["folders"]
+      path_parts.each do |folder|
+        current_folder[folder] ||= { "folders" => {}  }
+        current_folder = current_folder[folder]["folders"]
+      end
+
+
+      # Inizializzo "files"
+      current_folder["files"] ||= {}
+      # Aggiungi il file corrente
+      current_folder["files"][file_name] = {
+        "name" => file_name,
+        "checksum" => hash,
+        "status" => status,
+        "replicas" => replicas
+      }
+    else
+      # Inizializza la struttura se non esiste
+      current_folder = output_hash["files"]
+
+      # Inizializzo "files"
+      current_folder ||= {}
+      # Aggiungi il file corrente
+      current_folder[file_name] = {
+        "name" => file_name,
+        "checksum" => hash,
+        "status" => status,
+        "replicas" => replicas
+      }
     end
-
-    # Inizializzo "files"
-    current_folder["files"] ||= {}
-    # Aggiungi il file corrente
-    current_folder["files"][file_name] = {
-      "name" => file_name,
-      "checksum" => hash,
-      "status" => status,
-      "replicas" => replicas
-    }
-
   end
 
   return output_hash
 end
 
 # sposta di un livello in alto "files" nel JSON
-def organizza_files(albero_json)
+def organizza_files(struct_albero)
   result = {}
 
-  albero_json.each do |key, value|
+
+  # alzo di un lvl tutti i "files"
+  struct_albero.each do |key, value|
     if value.is_a?(Hash) && value.key?("folders") && value["folders"].key?("files")
       files = value["folders"].delete("files")
       value["files"] = files
     end
-
+    
     result[key] = value.is_a?(Hash) ? organizza_files(value) : value
   end
+
+  
+  # chiavi_root = {  
+  #   "folders"  =>  {}, 
+  #   "files"  =>  {}
+  # }
+
+  # # aggiungo due livelli in root, files e folder
+  # struct_albero =  chiavi_root.merge(struct_albero)
+
+  # alzo di un lvl tutti i "." nel caso in cui ci siano file in root
+  # struct_albero.each do |key, value|
+  #   if value.is_a?(Hash) && value.key?(".") && value["."].key?("files")
+  #     files = value["."].delete("files")
+  #     value["files"] = files
+  #   end
+    
+  #   result[key] = value.is_a?(Hash) ? organizza_files(value) : value
+  # end
 
   result
 end
 
 def salva_json(albero, nome_file_output)
+  albero = JSON.pretty_generate(albero)
   File.open(nome_file_output, 'w') do |file|
     file.puts(albero)
   end
@@ -156,7 +196,8 @@ nome_file_2_split = file_input_2.split('-')
 parametri_test = {  
   "ransomware"  =>  nome_file_2_split[0], 
   "ranflood_delay"  =>  nome_file_2_split[1], 
-  "strategy"  =>  nome_file_2_split[2]
+  "strategy"  =>  nome_file_2_split[2],
+  "root" => "C:/users/user",
 }
 
 
@@ -166,7 +207,7 @@ parametri_test = {
 # puts struct_albero_JSON
 
 # sposto tutte le chiavi "files" di un livello in alto in modo da rispettare il formato desiderato
-struct_albero_JSON = JSON.pretty_generate(organizza_files(struct_albero))
+struct_albero_JSON = organizza_files(struct_albero)
 
 # unisco i due hash info test  e albero cartelle
 struct_albero_JSON =  parametri_test.merge(struct_albero_JSON)

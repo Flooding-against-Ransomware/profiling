@@ -1,106 +1,110 @@
 {
-  "DOWNLOAD": {
-    "folders": {
-    },
-    "files": {
-      "AN_OVERV.PDF": {
-        "name": "AN_OVERV.PDF",
-        "checksum": "t1ZYbj77xly1A6StpZQGQ4z77Yw=",
-        "status": "lost",
-        "replicas": [
-
-        ]
-      },
-      "DATA_MAN.PDF": {
-        "name": "DATA_MAN.PDF",
-        "checksum": "1h3KuosdFbe6fEU7MllnNN4Oxwg=",
-        "status": "lost",
-        "replicas": [
-
-        ]
-      }
+  "ransomware": ".\\esempioWannaCry",
+  "ranflood_delay": "180",
+  "strategy": "ON_THE_FLY",
+  "root": "C:/users/user",
+  "files": {
+    "Z9_4BB5T.JPG": {
+      "name": "Z9_4BB5T.JPG",
+      "checksum": "VnmkCeYMkU+qXvqraKFPjsvlTeg=",
+      "status": "lost",
+      "replicas": []
     }
   },
-  "Desktop": {
-    "folders": {
-      "ANOTHER": {
-        "folders": {
+  "folders": {
+    "DOWNLOAD": {
+      "folders": {},
+      "files": {
+        "AN_OVERV.PDF": {
+          "name": "AN_OVERV.PDF",
+          "checksum": "t1ZYbj77xly1A6StpZQGQ4z77Yw=",
+          "status": "lost",
+          "replicas": []
         },
-        "files": {
-          "D2603682.DUM": {
-            "name": "D2603682.DUM",
-            "checksum": "NFrx0KDUZqhWCAKN5zqVKgWvwQ4=",
-            "status": "replica",
-            "replicas": [
-              "Desktop/ANOTHER/D2603682_replica.DUM"
-            ]
-          }
+        "DATA_MAN.PDF": {
+          "name": "DATA_MAN.PDF",
+          "checksum": "1h3KuosdFbe6fEU7MllnNN4Oxwg=",
+          "status": "lost",
+          "replicas": []
         }
       }
     },
-    "files": {
-      "FILE_000.DOC": {
-        "name": "FILE_000.DOC",
-        "checksum": "2ObJgl0zkU4OFXwLNKMGerdhxag=",
-        "status": "pristine",
-        "replicas": [
-          "Desktop/FILE_000.DOC",
-          "AppData/Local/Microsoft/OneDrive/RUC.PDF"
-        ]
+    "Desktop": {
+      "folders": {
+        "ANOTHER": {
+          "folders": {},
+          "files": {
+            "D2603682.DUM": {
+              "name": "D2603682.DUM",
+              "checksum": "NFrx0KDUZqhWCAKN5zqVKgWvwQ4=",
+              "status": "replica",
+              "replicas": [
+                "Desktop/ANOTHER/D2603682_replica.DUM"
+              ]
+            }
+          }
+        }
       },
-      "CONSTRUC.PDF": {
-        "name": "CONSTRUC.PDF",
-        "checksum": "jqFlumgrNmjPqdWIM8PyOrZ63oc=",
-        "status": "pristine",
-        "replicas": [
-          "Desktop/CONSTRUC.PDF"
-        ]
+      "files": {
+        "FILE_000.DOC": {
+          "name": "FILE_000.DOC",
+          "checksum": "2ObJgl0zkU4OFXwLNKMGerdhxag=",
+          "status": "pristine",
+          "replicas": [
+            "Desktop/FILE_000.DOC",
+            "AppData/Local/Microsoft/OneDrive/RUC.PDF"
+          ]
+        },
+        "CONSTRUC.PDF": {
+          "name": "CONSTRUC.PDF",
+          "checksum": "jqFlumgrNmjPqdWIM8PyOrZ63oc=",
+          "status": "pristine",
+          "replicas": [
+            "Desktop/CONSTRUC.PDF"
+          ]
+        }
       }
-    }
-  },
-  "AppData": {
-    "folders": {
-      "Local": {
-        "folders": {
-          "Microsoft": {
-            "folders": {
-              "OneDrive": {
-                "folders": {
-                  "18.143.0717.0002": {
-                    "folders": {
-                      "mk": {
-                        "folders": {
-                        },
-                        "files": {
-                          "FileSync.LocalizedResources.dll.mui": {
-                            "name": "FileSync.LocalizedResources.dll.mui",
-                            "checksum": "S0KIECaze2nmqQ+D4CkGcZuPG48=",
-                            "status": "pristine",
-                            "replicas": [
-                              "AppData/Local/Microsoft/OneDrive/18.143.0717.0002/mk/FileSync.LocalizedResources.dll.mui"
-                            ]
+    },
+    "AppData": {
+      "folders": {
+        "Local": {
+          "folders": {
+            "Microsoft": {
+              "folders": {
+                "OneDrive": {
+                  "folders": {
+                    "18.143.0717.0002": {
+                      "folders": {
+                        "mk": {
+                          "folders": {},
+                          "files": {
+                            "FileSync.LocalizedResources.dll.mui": {
+                              "name": "FileSync.LocalizedResources.dll.mui",
+                              "checksum": "S0KIECaze2nmqQ+D4CkGcZuPG48=",
+                              "status": "pristine",
+                              "replicas": [
+                                "AppData/Local/Microsoft/OneDrive/18.143.0717.0002/mk/FileSync.LocalizedResources.dll.mui"
+                              ]
+                            }
                           }
                         }
                       }
-                    }
-                  },
-                  "18.143.0717.0002_10": {
-                    "folders": {
-                      "qml": {
-                        "folders": {
-                          "QtQuick": {
-                            "folders": {
-                              "Controls.2": {
-                                "folders": {
-                                },
-                                "files": {
-                                  "Dialog.qml": {
-                                    "name": "Dialog.qml",
-                                    "checksum": "ZIIv7Eu9Wo7AG3GYRFiesZeTdFs=",
-                                    "status": "lost",
-                                    "replicas": [
-
-                                    ]
+                    },
+                    "18.143.0717.0002_10": {
+                      "folders": {
+                        "qml": {
+                          "folders": {
+                            "QtQuick": {
+                              "folders": {
+                                "Controls.2": {
+                                  "folders": {},
+                                  "files": {
+                                    "Dialog.qml": {
+                                      "name": "Dialog.qml",
+                                      "checksum": "ZIIv7Eu9Wo7AG3GYRFiesZeTdFs=",
+                                      "status": "lost",
+                                      "replicas": []
+                                    }
                                   }
                                 }
                               }
@@ -110,25 +114,22 @@
                       }
                     }
                   }
-                }
-              },
-              "Media Player": {
-                "folders": {
-                  "Sync Playlists": {
-                    "folders": {
-                      "en-US": {
-                        "folders": {
-                          "00039924": {
-                            "folders": {
-                            },
-                            "files": {
-                              "01_Music_auto_rated_at_5_stars.wpl": {
-                                "name": "01_Music_auto_rated_at_5_stars.wpl",
-                                "checksum": "7RC/fPPfYbqV9F3KOQQkc+/gcZc=",
-                                "status": "lost",
-                                "replicas": [
-
-                                ]
+                },
+                "Media Player": {
+                  "folders": {
+                    "Sync Playlists": {
+                      "folders": {
+                        "en-US": {
+                          "folders": {
+                            "00039924": {
+                              "folders": {},
+                              "files": {
+                                "01_Music_auto_rated_at_5_stars.wpl": {
+                                  "name": "01_Music_auto_rated_at_5_stars.wpl",
+                                  "checksum": "7RC/fPPfYbqV9F3KOQQkc+/gcZc=",
+                                  "status": "lost",
+                                  "replicas": []
+                                }
                               }
                             }
                           }
