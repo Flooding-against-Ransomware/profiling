@@ -8,31 +8,39 @@
       "name": "Z9_4BB5T.JPG",
       "checksum": "VnmkCeYMkU+qXvqraKFPjsvlTeg=",
       "status": "lost",
-      "replicas": []
+      "replicas": [
+
+      ]
     }
   },
   "folders": {
     "DOWNLOAD": {
-      "folders": {},
+      "folders": {
+      },
       "files": {
         "AN_OVERV.PDF": {
           "name": "AN_OVERV.PDF",
           "checksum": "t1ZYbj77xly1A6StpZQGQ4z77Yw=",
           "status": "lost",
-          "replicas": []
+          "replicas": [
+
+          ]
         },
         "DATA_MAN.PDF": {
           "name": "DATA_MAN.PDF",
           "checksum": "1h3KuosdFbe6fEU7MllnNN4Oxwg=",
           "status": "lost",
-          "replicas": []
+          "replicas": [
+
+          ]
         }
       }
     },
     "Desktop": {
       "folders": {
         "ANOTHER": {
-          "folders": {},
+          "folders": {
+          },
           "files": {
             "D2603682.DUM": {
               "name": "D2603682.DUM",
@@ -51,8 +59,7 @@
           "checksum": "2ObJgl0zkU4OFXwLNKMGerdhxag=",
           "status": "pristine",
           "replicas": [
-            "Desktop/FILE_000.DOC",
-            "AppData/Local/Microsoft/OneDrive/RUC.PDF"
+
           ]
         },
         "CONSTRUC.PDF": {
@@ -60,7 +67,7 @@
           "checksum": "jqFlumgrNmjPqdWIM8PyOrZ63oc=",
           "status": "pristine",
           "replicas": [
-            "Desktop/CONSTRUC.PDF"
+
           ]
         }
       }
@@ -76,14 +83,15 @@
                     "18.143.0717.0002": {
                       "folders": {
                         "mk": {
-                          "folders": {},
+                          "folders": {
+                          },
                           "files": {
                             "FileSync.LocalizedResources.dll.mui": {
                               "name": "FileSync.LocalizedResources.dll.mui",
                               "checksum": "S0KIECaze2nmqQ+D4CkGcZuPG48=",
                               "status": "pristine",
                               "replicas": [
-                                "AppData/Local/Microsoft/OneDrive/18.143.0717.0002/mk/FileSync.LocalizedResources.dll.mui"
+
                               ]
                             }
                           }
@@ -97,13 +105,16 @@
                             "QtQuick": {
                               "folders": {
                                 "Controls.2": {
-                                  "folders": {},
+                                  "folders": {
+                                  },
                                   "files": {
                                     "Dialog.qml": {
                                       "name": "Dialog.qml",
                                       "checksum": "ZIIv7Eu9Wo7AG3GYRFiesZeTdFs=",
                                       "status": "lost",
-                                      "replicas": []
+                                      "replicas": [
+
+                                      ]
                                     }
                                   }
                                 }
@@ -122,13 +133,16 @@
                         "en-US": {
                           "folders": {
                             "00039924": {
-                              "folders": {},
+                              "folders": {
+                              },
                               "files": {
                                 "01_Music_auto_rated_at_5_stars.wpl": {
                                   "name": "01_Music_auto_rated_at_5_stars.wpl",
                                   "checksum": "7RC/fPPfYbqV9F3KOQQkc+/gcZc=",
                                   "status": "lost",
-                                  "replicas": []
+                                  "replicas": [
+
+                                  ]
                                 }
                               }
                             }

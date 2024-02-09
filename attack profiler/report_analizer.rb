@@ -36,7 +36,7 @@ def unisci_strutture(struttura1, struttura2)
       # Il percorso di path1 è presente anche in path2
       if path2.include?(path1.first)        
         info["status"] = "pristine"
-        info["replicas"] = path2 #  Aggiungo anche le eventuali repliche
+        # info["replicas"] = path2 #  Aggiungo anche le eventuali repliche
       else
         info["status"] = "replica"
         info["replicas"] = path2
