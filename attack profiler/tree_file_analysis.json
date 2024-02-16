@@ -1,8 +1,8 @@
 {
-  "ransomware": ".\\esempioWannaCry",
+  "ransomware": "esempioWannaCry",
   "ranflood_delay": "180",
   "strategy": "ON_THE_FLY",
-  "root": "C:/users/user",
+  "root": "C:/users/IEuser",
   "files": {
     "Z9_4BB5T.JPG": {
       "name": "Z9_4BB5T.JPG",
@@ -59,7 +59,7 @@
           "checksum": "2ObJgl0zkU4OFXwLNKMGerdhxag=",
           "status": "pristine",
           "replicas": [
-
+            "AppData/Local/Microsoft/OneDrive/RUC.PDF"
           ]
         },
         "CONSTRUC.PDF": {

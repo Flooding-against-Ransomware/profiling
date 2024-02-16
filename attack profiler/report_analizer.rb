@@ -5,16 +5,37 @@
 
 require 'json'
 
+# vecchia funzione
+# def crea_struct(file_path)
+#   risultato = {}
+
+#   # Leggi il file linea per linea
+#   File.foreach(file_path) do |linea|
+#     # Divide la linea in percorso e hash
+#     percorso, hash = linea.chomp.split(',')
+
+#     # Aggiunge l'elemento alla struttura
+#     risultato[hash] ||= []  # Inizializza l'array se non esiste già
+#     risultato[hash] << percorso
+#   end
+
+#   return risultato
+# end
 
 def crea_struct(file_path)
   risultato = {}
 
-  # Leggi il file linea per linea
-  File.foreach(file_path) do |linea|
-    # Divide la linea in percorso e hash
-    percorso, hash = linea.chomp.split(',')
+  # Leggi il contenuto del file JSON
+  json_content = File.read(file_path)
+  data = JSON.parse(json_content)
 
-    # Aggiunge l'elemento alla struttura
+  # Itera su ogni elemento nel formato JSON
+  data.each do |elemento|
+    # Estrai il percorso e l'hash dall'elemento
+    percorso = elemento["path"]
+    hash = elemento["checksum"]
+
+    # Aggiungi l'elemento alla struttura
     risultato[hash] ||= []  # Inizializza l'array se non esiste già
     risultato[hash] << percorso
   end
@@ -36,7 +57,7 @@ def unisci_strutture(struttura1, struttura2)
       # Il percorso di path1 è presente anche in path2
       if path2.include?(path1.first)        
         info["status"] = "pristine"
-        # info["replicas"] = path2 #  Aggiungo anche le eventuali repliche
+        info["replicas"] = path2 - path1#  Aggiungo anche le eventuali repliche
       else
         info["status"] = "replica"
         info["replicas"] = path2
@@ -180,14 +201,15 @@ file_input_2 = ARGV[1]
 nome_file_output = 'tree_file_analysis.json'
 
 struct_base = crea_struct(file_input_1)
-# puts struct_base
+puts struct_base
+puts "-----------------------"
 struct_contrasto = crea_struct(file_input_2)
-# puts struct_contrasto
+puts struct_contrasto
 
 puts "-----------------------"
 
 struct_risultato = unisci_strutture(struct_base, struct_contrasto)
-# puts struct_risultato
+puts struct_risultato
 
 # elaborazione dell'hash in albero cartelle - file
 struct_albero = crea_albero(struct_risultato)
@@ -197,7 +219,7 @@ parametri_test = {
   "ransomware"  =>  nome_file_2_split[0], 
   "ranflood_delay"  =>  nome_file_2_split[1], 
   "strategy"  =>  nome_file_2_split[2],
-  "root" => "C:/users/user",
+  "root" => "C:/users/IEuser",
 }
 
 
