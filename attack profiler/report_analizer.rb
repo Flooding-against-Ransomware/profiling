@@ -201,15 +201,15 @@ file_input_2 = ARGV[1]
 nome_file_output = 'tree_file_analysis.json'
 
 struct_base = crea_struct(file_input_1)
-puts struct_base
-puts "-----------------------"
+# puts struct_base
+# puts "-----------------------"
 struct_contrasto = crea_struct(file_input_2)
-puts struct_contrasto
+# puts struct_contrasto
 
-puts "-----------------------"
+# puts "-----------------------"
 
 struct_risultato = unisci_strutture(struct_base, struct_contrasto)
-puts struct_risultato
+# puts struct_risultato
 
 # elaborazione dell'hash in albero cartelle - file
 struct_albero = crea_albero(struct_risultato)
