@@ -192,7 +192,7 @@ def salva_json(albero, nome_file_output)
 end
 
 if ARGV.length != 2
-  puts "Usage: ruby reportAnalizer.rb <file_input1> <file_input2>"
+  puts "Usage: ruby report_analizer.rb <file_input1> <file_input2>"
   exit(1)
 end
 

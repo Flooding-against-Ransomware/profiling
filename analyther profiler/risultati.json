@@ -1,0 +1,11 @@
+{
+  "chiave_cercata": "status",
+  "totale_chiavi": 17738,
+  "valori_unici_chiave": {
+    "pristine": 16992,
+    "lost": 697,
+    "{\"name\"=>\"status\", \"checksum\"=>\"LV31trKpz4VxVZO/hHVPLJ+gSuE=\", \"status\"=>\"pristine\", \"replicas\"=>[]}": 1,
+    "replica_unique": 48,
+    "replica": "contare tutti i record dentro replica, per vedere quante repliche in più ci sono rispetto al bisogno"
+  }
+}
