@@ -10,7 +10,7 @@ def analizza_json(file_path, output_file, key_analizzata)
 
     # Inizializza una struttura per i conteggi
     conteggi = Hash.new(0)
-    totale_status = [0]  # Inizializzato come array per passaggio per riferimento
+    totale_status = [0]  
 
     # Analizza il JSON e conta gli status
     analizza_ricorsivamente(json_data, conteggi, totale_status, key_analizzata)
@@ -65,7 +65,7 @@ end
 
 file_input = ARGV[0]
 
-file_output = 'risultati.json' 
+file_output = 'output_risultati.json' 
 key_analizzata = 'status'
 
 analizza_json(file_input, file_output, key_analizzata)
