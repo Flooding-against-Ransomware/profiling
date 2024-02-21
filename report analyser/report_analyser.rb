@@ -10,7 +10,7 @@ def analizza_json(file_path, output_file, key_analizzata)
 
     # Inizializza una struttura per i conteggi
     conteggi = Hash.new(0)
-    totale_status = [0]  
+    totale_status = [0]
 
     # Analizza il JSON e conta gli status
     analizza_ricorsivamente(json_data, conteggi, totale_status, key_analizzata)
