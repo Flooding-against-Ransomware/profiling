@@ -33,7 +33,7 @@ def crea_struct(file_path)
   json_content = File.read(file_path)
   data = JSON.parse(json_content)
 
-  # Itera su ogni elemento nel formato JSON
+  # Per ogni elemento
   data.each do |elemento|
     # Estrai il percorso e l'hash dall'elemento
     percorso = elemento["path"]
@@ -54,20 +54,21 @@ def unisci_strutture(struttura1, struttura2)
   struttura1.each do |hash, path1|
     info = { "original" => path1.first, "status" => "", "replicas" => [] }
     
-    # L'hash esiste anche nella struttura 2
+    # L'hash esiste anche nella struttura 2 ?
     if struttura2.key?(hash)
       path2 = struttura2[hash]
 
-      # Il percorso di path1 è presente anche in path2
+      # Il percorso di path1 è presente anche in path2, allora il file è intonso
+      # altrimenti è una replica
       if path2.include?(path1.first)        
         info["status"] = "pristine"
-        info["replicas"] = path2 - path1 # Aggiungo le repliche ma tolgo il percorso originale
+        info["replicas"] = path2 - path1 # Aggiungo le repliche ma tolgo il percorso originale, che potrò dedurre dalla struttura del JSON
       else
         info["status"] = "replica"
         info["replicas"] = path2
       end
     else
-      # L'hash non esiste nella struttura 2
+      # L'hash non esiste nella struttura 2, quindi il file è perduto
       info["status"] = "lost"
     end
 
@@ -91,7 +92,7 @@ end
 
 
 def crea_albero(input_hash)
-  # output_hash = {  }
+
   output_hash = { "files" => {} , "folders"  =>  {} }
 
   input_hash.each do |hash, info|
@@ -110,15 +111,12 @@ def crea_albero(input_hash)
 
     # Verifico se il percorso contiene il carattere "/", es non lo contiene è nella root
     if original_path.include?("/")
-      # Inizializza la struttura se non esiste
       current_folder = output_hash["folders"]
       path_parts.each do |folder|
         current_folder[folder] ||= { "folders" => {}  }
         current_folder = current_folder[folder]["folders"]
       end
 
-
-      # Inizializzo "files"
       current_folder["files"] ||= {}
       # Aggiungi il file corrente
       current_folder["files"][file_name] = {
@@ -128,10 +126,8 @@ def crea_albero(input_hash)
         "replicas" => replicas
       }
     else
-      # Inizializza la struttura se non esiste
-      current_folder = output_hash["files"]
 
-      # Inizializzo "files"
+      current_folder = output_hash["files"]
       current_folder ||= {}
       # Aggiungi il file corrente
       current_folder[file_name] = {
@@ -149,7 +145,6 @@ end
 # sposta di un livello in alto "files" nel JSON
 def organizza_files(struct_albero)
   result = {}
-
 
   # alzo di un lvl tutti i "files"
   struct_albero.each do |key, value|
@@ -194,6 +189,7 @@ struct_risultato = unisci_strutture(struct_base, struct_contrasto)
 # elaborazione dell'hash in albero cartelle - file
 struct_albero = crea_albero(struct_risultato)
 
+# estraggo dal nome del file i parametri del test: 
 nome_file_2_split = file_input_2.split('-')
 parametri_test = {  
   "ransomware"  =>  nome_file_2_split[0], 
@@ -202,11 +198,6 @@ parametri_test = {
   "root" => "C:/users/IEuser",
 }
 
-
-# trasformo in JSON
-# struct_albero_JSON = JSON.pretty_generate(struct_albero)
-
-# puts struct_albero_JSON
 
 # sposto tutte le chiavi "files" di un livello in alto in modo da rispettare il formato desiderato
 struct_albero_JSON = organizza_files(struct_albero)
