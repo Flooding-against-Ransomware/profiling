@@ -1,26 +1,30 @@
-# The script takes as input the total list of files on the reference VM and the result of the FileChecker. 
-# Analyze the results and create JSON whit a simple % ratio lost/save
-# Ranflood - https://ranflood.netlify.app/
-# https://notes.inria.fr/fEzRW8KJTM-Jr7vz2FHoiw?both#
+=begin
+
+ * Copyright 2024 (C) by Simone Melloni <melloni.simone@gmail.com>            *
+ *                                                                            *
+ * This program is free software; you can redistribute it and/or modify       *
+ * it under the terms of the GNU Library General Public License as            *
+ * published by the Free Software Foundation; either version 2 of the         *
+ * License, or (at your option) any later version.                            *
+ *                                                                            *
+ * This program is distributed in the hope that it will be useful,            *
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of             *
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the              *
+ * GNU General Public License for more details.                               *
+ *                                                                            *
+ * You should have received a copy of the GNU Library General Public          *
+ * License along with this program; if not, write to the                      *
+ * Free Software Foundation, Inc.,                                            *
+ * 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.                  *
+ *                                                                            *
+ * For details about the authors of this software, see the AUTHORS file.      *
+
+ *  Ranflood - https://ranflood.netlify.app/                                  *
+
+=end
 
 require 'json'
 
-# vecchia funzione
-# def crea_struct(file_path)
-#   risultato = {}
-
-#   # Leggi il file linea per linea
-#   File.foreach(file_path) do |linea|
-#     # Divide la linea in percorso e hash
-#     percorso, hash = linea.chomp.split(',')
-
-#     # Aggiunge l'elemento alla struttura
-#     risultato[hash] ||= []  # Inizializza l'array se non esiste già
-#     risultato[hash] << percorso
-#   end
-
-#   return risultato
-# end
 
 def crea_struct(file_path)
   risultato = {}
@@ -103,11 +107,6 @@ def crea_albero(input_hash)
 
     # Inizializza la struttura se non esiste
     current_folder = output_hash["folders"]
-    
-    # path_parts.each do |folder|
-    #   current_folder[folder] ||= { "folders" => {}  }
-    #   current_folder = current_folder[folder]["folders"]
-    # end
 
     # Verifico se il percorso contiene il carattere "/", es non lo contiene è nella root
     if original_path.include?("/")
@@ -160,26 +159,7 @@ def organizza_files(struct_albero)
     end
     
     result[key] = value.is_a?(Hash) ? organizza_files(value) : value
-  end
-
-  
-  # chiavi_root = {  
-  #   "folders"  =>  {}, 
-  #   "files"  =>  {}
-  # }
-
-  # # aggiungo due livelli in root, files e folder
-  # struct_albero =  chiavi_root.merge(struct_albero)
-
-  # alzo di un lvl tutti i "." nel caso in cui ci siano file in root
-  # struct_albero.each do |key, value|
-  #   if value.is_a?(Hash) && value.key?(".") && value["."].key?("files")
-  #     files = value["."].delete("files")
-  #     value["files"] = files
-  #   end
-    
-  #   result[key] = value.is_a?(Hash) ? organizza_files(value) : value
-  # end
+  end 
 
   result
 end
