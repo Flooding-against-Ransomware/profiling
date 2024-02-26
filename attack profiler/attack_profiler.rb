@@ -195,7 +195,7 @@ parametri_test = {
   "ransomware"  =>  nome_file_2_split[0], 
   "ranflood_delay"  =>  nome_file_2_split[1], 
   "strategy"  =>  nome_file_2_split[2],
-  "root" => "C:/users/IEuser",
+  "root" => "C:\users\IEuser",
 }
 
 
