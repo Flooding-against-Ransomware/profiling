@@ -36,8 +36,8 @@ def crea_struct(file_path)
   # Per ogni elemento
   data.each do |elemento|
     # Estrai il percorso e l'hash dall'elemento
-    percorso = elemento["path"]
-    hash = elemento["checksum"]
+    percorso = elemento[ "path" ]
+    hash = elemento[ "checksum" ]
 
     # Aggiungi l'elemento alla struttura
     risultato[hash] ||= []  # Inizializza l'array se non esiste già
@@ -52,7 +52,7 @@ def unisci_strutture(struttura1, struttura2)
 
   # Unisce i dati dalla struttura 1
   struttura1.each do |hash, path1|
-    info = { "original" => path1.first, "status" => "", "replicas" => [] }
+    info = { :original => path1.first, :status => "", :replicas => [] }
     
     # L'hash esiste anche nella struttura 2 ?
     if struttura2.key?(hash)
@@ -61,18 +61,18 @@ def unisci_strutture(struttura1, struttura2)
       # Il percorso di path1 è presente anche in path2, allora il file è intonso
       # altrimenti è una replica
       if path2.include?(path1.first)        
-        info["status"] = "pristine"
-        info["replicas"] = path2 - path1 # Aggiungo le repliche ma tolgo il percorso originale, che potrò dedurre dalla struttura del JSON
+        info[ :status ] = "pristine"
+        info[ :replicas ] = path2 - path1 # Aggiungo le repliche ma tolgo il percorso originale, che potrò dedurre dalla struttura del JSON
       else
-        info["status"] = "replica"
-        info["replicas"] = path2
+        info[ :status ] = "replica"
+        info[ :replicas ] = path2
       end
     else
       # L'hash non esiste nella struttura 2, quindi il file è perduto
-      info["status"] = "lost"
+      info[ :status ] = "lost"
     end
 
-    risultato[hash] = info
+    risultato[ hash ] = info
   end
 
   # Aggiungo le info dalla struttura 2
@@ -80,9 +80,9 @@ def unisci_strutture(struttura1, struttura2)
     unless risultato.key?(hash)
       # L'hash non esiste nella struttura 1
       risultato[hash] = {
-        "original" => "",
-        "status" => "replica",
-        "replicas" => path2
+        :original => "",
+        :status => "replica",
+        :replicas => path2
       }
     end
   end
@@ -93,48 +93,48 @@ end
 
 def crea_albero(input_hash)
 
-  output_hash = { "files" => {} , "folders"  =>  {} }
+  output_hash = { :files => {} , :folders  =>  {} }
 
   input_hash.each do |hash, info|
-    original_path = info["original"]
-    status = info["status"]
-    replicas = info["replicas"]
+    original_path = info[ :original ]
+    status = info[ :status ]
+    replicas = info[ :replicas ]
 
     # Estrai il nome del file dalla path
-    file_name = File.basename(original_path)
+    file_name = File.basename( original_path )
 
     # Divide la path in cartelle
-    path_parts = File.dirname(original_path).split("/")
+    path_parts = File.dirname( original_path ).split("/")
 
     # Inizializza la struttura se non esiste
-    current_folder = output_hash["folders"]
+    current_folder = output_hash[ :folders ]
 
     # Verifico se il percorso contiene il carattere "/", es non lo contiene è nella root
-    if original_path.include?("/")
-      current_folder = output_hash["folders"]
-      path_parts.each do |folder|
-        current_folder[folder] ||= { "folders" => {}  }
-        current_folder = current_folder[folder]["folders"]
+    if original_path.include?( "/" )
+      # current_folder = output_hash["folders"]
+      path_parts.each do | folder |
+        current_folder[ folder ] ||= { :folders => {} }
+        current_folder = current_folder[ folder ][ :folders ]
       end
 
-      current_folder["files"] ||= {}
+      current_folder[ :files ] ||= {}
       # Aggiungi il file corrente
-      current_folder["files"][file_name] = {
-        "name" => file_name,
-        "checksum" => hash,
-        "status" => status,
-        "replicas" => replicas
+      current_folder[ :files ][file_name] = {
+        :name => file_name,
+        :checksum => hash,
+        :status => status,
+        :replicas => replicas
       }
     else
 
-      current_folder = output_hash["files"]
+      current_folder = output_hash[ :files ]
       current_folder ||= {}
       # Aggiungi il file corrente
       current_folder[file_name] = {
-        "name" => file_name,
-        "checksum" => hash,
-        "status" => status,
-        "replicas" => replicas
+        :name => file_name,
+        :checksum => hash,
+        :status => status,
+        :replicas => replicas
       }
     end
   end
@@ -148,9 +148,9 @@ def organizza_files(struct_albero)
 
   # alzo di un lvl tutti i "files"
   struct_albero.each do |key, value|
-    if value.is_a?(Hash) && value.key?("folders") && value["folders"].key?("files")
-      files = value["folders"].delete("files")
-      value["files"] = files
+    if value.is_a?(Hash) && value.key?( :folders ) && value[ :folders ].key?( :files )
+      files = value[ :folders ].delete( :files )
+      value[ :files ] = files
     end
     
     result[key] = value.is_a?(Hash) ? organizza_files(value) : value
@@ -173,7 +173,7 @@ end
 
 file_input_1 = ARGV[0]
 file_input_2 = ARGV[1]
-nome_file_output = 'tree_file_analysis.json'
+nome_file_output = "#{file_input_2}_report.json"
 
 struct_base = crea_struct(file_input_1)
 # puts struct_base
@@ -192,10 +192,10 @@ struct_albero = crea_albero(struct_risultato)
 # estraggo dal nome del file i parametri del test: 
 nome_file_2_split = file_input_2.split('-')
 parametri_test = {  
-  "ransomware"  =>  nome_file_2_split[0], 
+  "ransomware"  => ->(x){ x[x.size-1] }.call( nome_file_2_split[0].split('/') ), 
   "ranflood_delay"  =>  nome_file_2_split[1], 
   "strategy"  =>  nome_file_2_split[2],
-  "root" => "C:\users\IEuser",
+  "root" => "C:/users/IEuser",
 }
 
 
@@ -203,7 +203,7 @@ parametri_test = {
 struct_albero_JSON = organizza_files(struct_albero)
 
 # unisco i due hash info test  e albero cartelle
-struct_albero_JSON =  parametri_test.merge(struct_albero_JSON)
+struct_albero_JSON = parametri_test.merge(struct_albero_JSON)
 
 salva_json(struct_albero_JSON, nome_file_output)
 
