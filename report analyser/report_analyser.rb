@@ -42,6 +42,7 @@ def analizza_json(file_path, output_file)
 
   rescue StandardError => e
     puts "Errore durante l'analisi del file JSON: #{e.message}"
+    puts e.backtrace
   end
 end
 
@@ -85,6 +86,6 @@ end
 
 file_input = ARGV[0]
 
-file_output = 'output_risultati.json' 
+file_output = "#{file_input}_analysis.json"
 
 analizza_json( file_input, file_output )
