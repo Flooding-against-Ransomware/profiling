@@ -46,29 +46,134 @@ def analizza_json(file_path, output_file)
   end
 end
 
-def analizza_ricorsivamente( data )
-  results = Hash.new
-  results[ "total" ] = 0
-  results[ "pristine" ] = 0
-  results[ "replica" ] = 0
-  results[ "replica_full" ] = 0
-  results[ "lost" ] = 0
-  if ( data[ "files" ].is_a?( Hash ) )
-    data[ "files" ].each do | k, v |
-      results[ "total" ] += 1
-      results[ v[ "status" ] ] += 1
-      if( v[ "status" ] == "replica" )
-        results[ "replica_full" ] += v[ "replicas" ].length
+# analizza radice per recuperare le cartelle dell'utente
+def analizza_ricorsivamente(data)
+  # Inizializza l'hash dei risultati con le chiavi richieste
+  results = {
+    "total" => 0,
+    "pristine" => 0,
+    "replica" => 0,
+    "replica_full" => 0,
+    "lost" => 0,
+    "folders" => {},
+    "extensions" => Hash.new { |hash, key| hash[key] = Hash.new(0) }
+  }
+
+  # Analizza i file nel livello corrente
+  if data["files"].is_a?(Hash)
+    data["files"].each do |k, v|
+      ext = File.extname(v["name"]).downcase
+      results["total"] += 1
+      results[v["status"]] += 1
+      results["extensions"][ext]["total"] += 1
+      results["extensions"][ext][v["status"]] += 1
+      if v["status"] == "replica"
+        results["replica_full"] += v["replicas"].length
+        results["extensions"][ext]["replica_full"] += v["replicas"].length
       end
     end
   end
-  if ( data[ "folders" ].is_a?( Hash ) )
-    data[ "folders" ].each do | k, v |
-      results = results.merge( analizza_ricorsivamente( v ) ){ |k,vl,vr| vl + vr }
+
+  # Analizza le cartelle nel livello corrente
+  if data["folders"].is_a?(Hash)
+    data["folders"].each do |k, v|
+      folder_results = analizza_cartella(v)
+      results["total"] += folder_results["total"]
+      results["pristine"] += folder_results["pristine"]
+      results["replica"] += folder_results["replica"]
+      results["replica_full"] += folder_results["replica_full"]
+      results["lost"] += folder_results["lost"]
+      results["folders"][k] = folder_results
+
+      # Aggrega i risultati delle estensioni
+      folder_results["extensions"].each do |ext, counts|
+        results["extensions"][ext]["total"] += counts["total"]
+        results["extensions"][ext]["pristine"] += counts["pristine"]
+        results["extensions"][ext]["replica"] += counts["replica"]
+        results["extensions"][ext]["replica_full"] += counts["replica_full"]
+        results["extensions"][ext]["lost"] += counts["lost"]
+      end
     end
   end
-  return results
+
+  results
 end
+
+# analizza cartella diversa dalla radice
+def analizza_cartella(cartella)
+  # Inizializza l'hash dei risultati della cartella
+  folder_results = {
+    "total" => 0,
+    "pristine" => 0,
+    "replica" => 0,
+    "replica_full" => 0,
+    "lost" => 0,
+    "extensions" => Hash.new { |hash, key| hash[key] = Hash.new(0) }
+  }
+
+  # Analizza i file nella cartella corrente
+  if cartella["files"].is_a?(Hash)
+    cartella["files"].each do |k, v|
+      ext = File.extname(v["name"]).downcase
+      folder_results["total"] += 1
+      folder_results[v["status"]] += 1
+      folder_results["extensions"][ext]["total"] += 1
+      folder_results["extensions"][ext][v["status"]] += 1
+      if v["status"] == "replica"
+        folder_results["replica_full"] += v["replicas"].length
+        folder_results["extensions"][ext]["replica_full"] += v["replicas"].length
+      end
+    end
+  end
+
+  # Analizza le sottocartelle nella cartella corrente
+  if cartella["folders"].is_a?(Hash)
+    cartella["folders"].each do |k, v|
+      subfolder_results = analizza_cartella(v)
+      folder_results["total"] += subfolder_results["total"]
+      folder_results["pristine"] += subfolder_results["pristine"]
+      folder_results["replica"] += subfolder_results["replica"]
+      folder_results["replica_full"] += subfolder_results["replica_full"]
+      folder_results["lost"] += subfolder_results["lost"]
+
+      # Aggrega i risultati delle estensioni delle sottocartelle
+      subfolder_results["extensions"].each do |ext, counts|
+        folder_results["extensions"][ext]["total"] += counts["total"]
+        folder_results["extensions"][ext]["pristine"] += counts["pristine"]
+        folder_results["extensions"][ext]["replica"] += counts["replica"]
+        folder_results["extensions"][ext]["replica_full"] += counts["replica_full"]
+        folder_results["extensions"][ext]["lost"] += counts["lost"]
+      end
+    end
+  end
+
+  folder_results
+end
+
+
+# def analizza_ricorsivamente( data )
+#   results = Hash.new
+#   results[ "total" ] = 0
+#   results[ "pristine" ] = 0
+#   results[ "replica" ] = 0
+#   results[ "replica_full" ] = 0
+#   results[ "lost" ] = 0
+#   if ( data[ "files" ].is_a?( Hash ) )
+#     data[ "files" ].each do | k, v |
+#       results[ "total" ] += 1
+#       results[ v[ "status" ] ] += 1
+#       if( v[ "status" ] == "replica" )
+#         results[ "replica_full" ] += v[ "replicas" ].length
+#       end
+#     end
+#   end
+#   if ( data[ "folders" ].is_a?( Hash ) )
+#     data[ "folders" ].each do | k, v |
+#       results = results.merge( analizza_ricorsivamente( v ) ){ |k,vl,vr| vl + vr }
+#     end
+#   end
+#   return results
+# end
 
 def salva_risultati( file_path, results )
 
