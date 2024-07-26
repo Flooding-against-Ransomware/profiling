@@ -35,7 +35,7 @@ def analizza_json(file_path, output_file)
     json_data = JSON.parse( file_content )
 
     # Analizza il JSON e conta gli status
-    results = analizza_ricorsivamente( json_data )
+    results = analizza_radice( json_data )
 
     # Salva i risultati in un file JSON
     salva_risultati( output_file, results )
@@ -47,7 +47,7 @@ def analizza_json(file_path, output_file)
 end
 
 # analizza radice per recuperare le cartelle dell'utente
-def analizza_ricorsivamente(data)
+def analizza_radice(data)
   # Inizializza l'hash dei risultati con le chiavi richieste
   results = {
     "total" => 0,
@@ -77,7 +77,7 @@ def analizza_ricorsivamente(data)
   # Analizza le cartelle nel livello corrente
   if data["folders"].is_a?(Hash)
     data["folders"].each do |k, v|
-      folder_results = analizza_cartella(v)
+      folder_results = analizza_cartella_ricorsivamente(v)
       results["total"] += folder_results["total"]
       results["pristine"] += folder_results["pristine"]
       results["replica"] += folder_results["replica"]
@@ -100,7 +100,7 @@ def analizza_ricorsivamente(data)
 end
 
 # analizza cartella diversa dalla radice
-def analizza_cartella(cartella)
+def analizza_cartella_ricorsivamente(cartella)
   # Inizializza l'hash dei risultati della cartella
   folder_results = {
     "total" => 0,
@@ -129,7 +129,7 @@ def analizza_cartella(cartella)
   # Analizza le sottocartelle nella cartella corrente
   if cartella["folders"].is_a?(Hash)
     cartella["folders"].each do |k, v|
-      subfolder_results = analizza_cartella(v)
+      subfolder_results = analizza_cartella_ricorsivamente(v)
       folder_results["total"] += subfolder_results["total"]
       folder_results["pristine"] += subfolder_results["pristine"]
       folder_results["replica"] += subfolder_results["replica"]
