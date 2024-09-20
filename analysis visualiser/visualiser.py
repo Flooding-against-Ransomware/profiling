@@ -14,7 +14,7 @@ def sunburst(nodes, total=np.pi * 2, offset=0, level=0, ax=None):
         value = nodes[ "value" ]
         subnodes = nodes[ "subnodes" ]
         ax.bar([0], [0.5], [np.pi * 2], color="white")
-        ax.text(0, 0, label, fontsize=18, ha='center', va='center')
+        ax.text(0, 0, label, fontsize=15, ha='center', va='center')
         sunburst(subnodes, total=value, level=level + 1, ax=ax)
     elif nodes:
         d = np.pi * 2 / total
@@ -32,17 +32,17 @@ def sunburst(nodes, total=np.pi * 2, offset=0, level=0, ax=None):
                      level=level + 1, ax=ax)
             local_offset += value
         values = np.cumsum([offset * d] + widths[:-1])
-        heights = [1] * len(nodes)
+        heights = ( [1] if level == 1 else [-.20] ) * len(nodes)
         bottoms = np.zeros(len(nodes)) + level - 0.5
         rects = ax.bar(values, heights, widths, bottoms, linewidth=1,
-                       edgecolor='black', align='edge', color=[(.5, .5, .5, 0.9),(.5, .5, .5, 0.8)])
+                       edgecolor='black', align='edge', color=[(.5, .5, .5, 0.25),(.5, .5, .5, 0.5)])
         for rect, label, node in zip(rects, labels, nodes):
             x = rect.get_x() + rect.get_width() / 2
             y = rect.get_y() + rect.get_height() / 2
             rotation = (90 + (360 - np.degrees(x) % 180)) % 360
-            fontsize = max(6, (min(20,6*node["value"])))
+            fontsize = ( max(6, (min(12,5*node["value"]))) if level == 1 else 6 )
             if( node["value"] > 1 ):
-                ax.text(x, y, label, color="white", fontsize=fontsize, rotation=rotation, ha='center', va='center') 
+                ax.text(x, y, label, color="black", fontsize=fontsize, rotation=rotation, ha='center', va='center') 
 
     if level == 0:
         ax.set_theta_direction(-1)
