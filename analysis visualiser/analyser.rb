@@ -64,6 +64,15 @@ def analyse_file( path )
 
   result = {
     path: path,
+    summary_total: {
+      label: "total",
+      value: 100,
+      subnodes: [ 
+        { label: "pristine", value: result[ :pristine_perc ], subnodes:[] }, 
+        { label: "replica", value: result[ :replica_perc ], subnodes:[] }, 
+        { label: "lost", value: result[ :lost_perc ], subnodes:[] }
+      ]
+    },
     ext_pristine: {
       label: "fold.\n pristine",
       value: 100,
