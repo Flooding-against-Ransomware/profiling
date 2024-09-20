@@ -49,15 +49,15 @@ def sunburst(nodes, colors=[(.5, .5, .5, 0.25),(.5, .5, .5, 0.5)], total=np.pi *
         ax.set_axis_off()
 
 colors = {}
-colors[ "pristine" ]= [(0.529, 0.694, 0.878, 0.5),(0.529, 0.694, 0.878, 0.75)]
-colors[ "replica" ]= [(0.529, 0.878, 0.549, 0.5),(0.529, 0.878, 0.549, 0.75)]
+colors[ "pristine" ] = [(0.529, 0.694, 0.878, 0.5),(0.529, 0.694, 0.878, 0.75)]
+colors[ "replica" ] = [(0.529, 0.878, 0.549, 0.5),(0.529, 0.878, 0.549, 0.75)]
 colors[ "lost" ] = [(0.878, 0.529, 0.529, 0.5),(0.878, 0.529, 0.529, 0.75)]
-colors[ "total" ]= [(0.529, 0.694, 0.878, 0.5), (0.529, 0.878, 0.549, 0.5), (0.878, 0.529, 0.529, 0.5)]
+colors[ "total" ] = [(0.529, 0.694, 0.878, 0.5), (0.529, 0.878, 0.549, 0.5), (0.878, 0.529, 0.529, 0.5)]
 
 with open( "_result.json" ) as data:
     data = json.load( data )
     path = data.pop( "path" )
     for key, value in data.items():
         sunburst( value, colors=colors[ key.split("_")[1] ] )
-        plt.savefig( f"{path}_{key}.pdf" )
+        plt.savefig( f"{path}_{key}.pdf", transparent=True, bbox_inches='tight' )
         plt.clf()

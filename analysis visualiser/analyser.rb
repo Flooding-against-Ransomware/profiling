@@ -65,7 +65,7 @@ def analyse_file( path )
   result = {
     path: path,
     summary_total: {
-      label: "total",
+      label: "",
       value: 100,
       subnodes: [ 
         { label: "pristine", value: result[ :pristine_perc ], subnodes:[] }, 
@@ -74,29 +74,29 @@ def analyse_file( path )
       ]
     },
     ext_pristine: {
-      label: "fold.\n pristine",
+      label: "folders",
       value: 100,
       subnodes: fold[ :pristine ].map{ |k, v| { label: k, value: v[ :percent ].round(2), subnodes: [] } } },
     ext_lost: {
-      label: "fold.\n lost",
+      label: "folders",
       value: 100,
       subnodes: fold[ :lost ].map{ |k, v| { label: k, value: v[ :percent ].round(2), subnodes: [] } } },
     ext_replica: {
-      label: "fold.\n replica",
+      label: "folders",
       value: 100,
       subnodes: fold[ :replica ].map{ |k, v| { 
         label: k, value: v[ :percent ].round(2), 
         subnodes: [ { label: "#{((v[ :percent_dist ] / v[ :percent ])*100).round(0)}\\%", value: v[ :percent_dist ], subnodes: [] } ] } } },
     fold_pristine: {
-      label: "ext.\n pristine",
+      label: "extensions",
       value: 100,
       subnodes: ext[ :pristine ].map{ |k, v| { label: k, value: v[ :percent ].round(2), subnodes: [] } } },
     fold_lost: {
-      label: "ext.\n lost",
+      label: "extensions",
       value: 100,
       subnodes: ext[ :lost ].map{ |k, v| { label: k, value: v[ :percent ].round(2), subnodes: [] } } },
     fold_replica: {
-      label: "ext.\n replica",
+      label: "extensions",
       value: 100,
       subnodes: ext[ :replica ].map{ |k, v| { 
         label: k, value: v[ :percent ].round(2), 
