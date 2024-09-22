@@ -1,0 +1,22 @@
+{
+  "count": 5,
+  "ransomware": "WannaCry",
+  "ranflood_delay": "60",
+  "strategy": "RANDOM",
+  "root": "C:/users/IEuser",
+  "total": 10075,
+  "total_avg": 2015.0,
+  "total_stddev": 0.0,
+  "pristine": 7983,
+  "pristine_avg": 1596.6,
+  "pristine_stddev": 154.0740081908691,
+  "replica": 833,
+  "replica_avg": 166.6,
+  "replica_stddev": 72.06108519860078,
+  "replica_full": 905,
+  "replica_full_avg": 181.0,
+  "replica_full_stddev": 48.41487374764082,
+  "lost": 1259,
+  "lost_avg": 251.8,
+  "lost_stddev": 82.51787685101938
+}
