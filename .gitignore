@@ -2,3 +2,4 @@
 .DS_Store
 *.pdf
 analysis visualiser/_result.json
+/analysis visualiser/aggregated_reports

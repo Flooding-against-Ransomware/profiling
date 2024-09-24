@@ -6,6 +6,7 @@ end
 
 def analyse_file( path )
   data = JSON.parse( File.read( path ) )
+  dir = File.dirname( path )
   path = File.basename( path, ".json" )
   result = {}
   result[ :total ] = data[ "pristine" ] + data[ "replica_full" ] + data[ "lost" ]
@@ -63,7 +64,7 @@ def analyse_file( path )
   end
 
   result = {
-    path: path,
+    path: dir + File::Separator + path,
     summary_total: {
       label: "",
       value: 100,
@@ -108,6 +109,7 @@ def analyse_file( path )
   File.write( "_result.json", json_content )
   puts "Plotting results of #{path}"
   `poetry run python visualiser.py`
+  
   puts "Done"
 end
 
