@@ -41,6 +41,8 @@ def sunburst(nodes, colors=[(.5, .5, .5, 0.25),(.5, .5, .5, 0.5)], total=np.pi *
             rotation = (90 + (360 - np.degrees(x) % 180)) % 360
             fontsize = ( max(6, (min(12,5*node["value"]))) if level == 1 else 6 )
             if( node["value"] > 1 ):
+                if ( "%" not in label ):
+                    label = f"{label} {node["value"]}%"
                 ax.text(x, y, label, color="black", fontsize=fontsize, rotation=rotation, ha='center', va='center') 
 
     if level == 0:
