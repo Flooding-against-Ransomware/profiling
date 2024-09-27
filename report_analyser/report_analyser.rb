@@ -64,10 +64,33 @@ def analizza_radice(data)
     "extensions" => Hash.new { |hash, key| hash[key] = Hash.new(0) }
   }
 
-  # Analizza i file nel livello corrente
+
+  # Struttura per recuperare i dati della root
+  root_folder_results = {
+    "total" => 0,
+    "pristine" => 0,
+    "replica" => 0,
+    "replica_full" => 0,
+    "lost" => 0,
+    "extensions" => Hash.new { |hash, key| hash[key] = Hash.new(0) }
+  }
+
+  # Analizza i file nella radice
   if data["files"].is_a?(Hash)
     data["files"].each do |k, v|
       ext = File.extname(v["name"]).downcase
+
+      # aggiungo conteggi della root da mettere dentro la folder "root"
+      root_folder_results["total"] += 1
+      root_folder_results[v["status"]] += 1
+      root_folder_results["extensions"][ext]["total"] += 1
+      root_folder_results["extensions"][ext][v["status"]] += 1
+      if v["status"] == "replica"
+        root_folder_results["replica_full"] += v["replicas"].length
+        root_folder_results["extensions"][ext]["replica_full"] += v["replicas"].length
+      end
+
+      # incremento i totali
       results["total"] += 1
       results[v["status"]] += 1
       results["extensions"][ext]["total"] += 1
@@ -76,11 +99,17 @@ def analizza_radice(data)
         results["replica_full"] += v["replicas"].length
         results["extensions"][ext]["replica_full"] += v["replicas"].length
       end
+     
     end
   end
 
-  # Analizza le cartelle nel livello corrente
+  # Aggiungi i risultati della radice sotto la chiave "\" in "folders"
+  results["folders"]["root"] = root_folder_results
+
+
+  # Analizza le cartelle nella radice
   if data["folders"].is_a?(Hash)
+
     data["folders"].each do |k, v|
       folder_results = analizza_cartella_ricorsivamente(v)
       results["total"] += folder_results["total"]
@@ -97,6 +126,8 @@ def analizza_radice(data)
         results["extensions"][ext]["replica"] += counts["replica"]
         results["extensions"][ext]["replica_full"] += counts["replica_full"]
         results["extensions"][ext]["lost"] += counts["lost"]
+
+
       end
     end
   end
@@ -128,6 +159,12 @@ def analizza_cartella_ricorsivamente(cartella)
         folder_results["replica_full"] += v["replicas"].length
         folder_results["extensions"][ext]["replica_full"] += v["replicas"].length
       end
+
+      # Stampa il checksum se lo status è 'pristine'
+      # if v["status"] == "pristine"
+      #   puts "Checksum for pristine file: #{v['checksum']}"
+      # end
+
     end
   end
 

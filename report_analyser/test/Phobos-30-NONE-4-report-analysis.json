@@ -9,6 +9,44 @@
   "replica_full": 2,
   "lost": 2009,
   "folders": {
+    "root": {
+      "total": 9,
+      "pristine": 2,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 7,
+      "extensions": {
+        ".ini": {
+          "total": 1,
+          "lost": 1
+        },
+        ".log1": {
+          "total": 1,
+          "lost": 1
+        },
+        ".regtrans-ms": {
+          "total": 1,
+          "pristine": 1
+        },
+        ".dat": {
+          "total": 1,
+          "lost": 1
+        },
+        ".reg": {
+          "total": 1,
+          "lost": 1
+        },
+        ".blf": {
+          "total": 2,
+          "lost": 1,
+          "pristine": 1
+        },
+        "": {
+          "total": 2,
+          "lost": 2
+        }
+      }
+    },
     "AppData": {
       "total": 1738,
       "pristine": 3,
