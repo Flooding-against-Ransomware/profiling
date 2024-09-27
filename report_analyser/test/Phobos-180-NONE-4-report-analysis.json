@@ -1,6 +1,6 @@
 {
   "ransomware": "Phobos",
-  "ranflood_delay": "30",
+  "ranflood_delay": "180",
   "strategy": "NONE",
   "root": "C:/users/IEuser",
   "total": 2015,

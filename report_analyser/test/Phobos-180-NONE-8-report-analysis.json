@@ -1,0 +1,2069 @@
+{
+  "ransomware": "Phobos",
+  "ranflood_delay": "180",
+  "strategy": "NONE",
+  "root": "C:/users/IEuser",
+  "total": 2015,
+  "pristine": 5,
+  "replica": 1,
+  "replica_full": 2,
+  "lost": 2009,
+  "folders": {
+    "root": {
+      "total": 9,
+      "pristine": 2,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 7,
+      "extensions": {
+        ".ini": {
+          "total": 1,
+          "lost": 1
+        },
+        ".log1": {
+          "total": 1,
+          "lost": 1
+        },
+        ".regtrans-ms": {
+          "total": 1,
+          "pristine": 1
+        },
+        ".dat": {
+          "total": 1,
+          "lost": 1
+        },
+        ".reg": {
+          "total": 1,
+          "lost": 1
+        },
+        ".blf": {
+          "total": 2,
+          "lost": 1,
+          "pristine": 1
+        },
+        "": {
+          "total": 2,
+          "lost": 2
+        }
+      }
+    },
+    "AppData": {
+      "total": 1738,
+      "pristine": 3,
+      "replica": 1,
+      "replica_full": 2,
+      "lost": 1734,
+      "extensions": {
+        "": {
+          "total": 316,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 316
+        },
+        ".jpg": {
+          "total": 21,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 21
+        },
+        ".ini": {
+          "total": 36,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 36
+        },
+        ".lnk": {
+          "total": 69,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 69
+        },
+        ".mapimail": {
+          "total": 1,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 1
+        },
+        ".automaticdestinations-ms": {
+          "total": 6,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 6
+        },
+        ".customdestinations-ms": {
+          "total": 4,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 4
+        },
+        ".library-ms": {
+          "total": 6,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 6
+        },
+        ".dic": {
+          "total": 1,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 1
+        },
+        ".txt": {
+          "total": 72,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 72
+        },
+        ".bac": {
+          "total": 3,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 3
+        },
+        ".log": {
+          "total": 63,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 63
+        },
+        ".jso": {
+          "total": 28,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 28
+        },
+        ".dat": {
+          "total": 80,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 80
+        },
+        ".fin": {
+          "total": 4,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 4
+        },
+        ".pb": {
+          "total": 5,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 5
+        },
+        ".tmp": {
+          "total": 13,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 13
+        },
+        ".zip": {
+          "total": 4,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 4
+        },
+        ".aut": {
+          "total": 3,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 3
+        },
+        ".cus": {
+          "total": 7,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 7
+        },
+        ".lib": {
+          "total": 4,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 4
+        },
+        ".des": {
+          "total": 1,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 1
+        },
+        ".zfs": {
+          "total": 1,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 1
+        },
+        ".old": {
+          "total": 1,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 1
+        },
+        ".ldb": {
+          "total": 1,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 1
+        },
+        ".blo": {
+          "total": 3,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 3
+        },
+        ".con": {
+          "total": 4,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 4
+        },
+        ".cch": {
+          "total": 1,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 1
+        },
+        ".sql": {
+          "total": 17,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 17
+        },
+        ".db": {
+          "total": 42,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 42
+        },
+        ".lz4": {
+          "total": 1,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 1
+        },
+        ".gz": {
+          "total": 1,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 1
+        },
+        ".js": {
+          "total": 5,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 5
+        },
+        ".moz": {
+          "total": 1,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 1
+        },
+        ".xml": {
+          "total": 18,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 18
+        },
+        ".ico": {
+          "total": 24,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 24
+        },
+        ".exe": {
+          "total": 36,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 36
+        },
+        ".config": {
+          "total": 2,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 2
+        },
+        ".oea": {
+          "total": 3,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 3
+        },
+        ".chk": {
+          "total": 5,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 5
+        },
+        ".jrs": {
+          "total": 3,
+          "pristine": 0,
+          "replica": 1,
+          "replica_full": 2,
+          "lost": 2
+        },
+        ".msm": {
+          "total": 2,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 2
+        },
+        ".emf": {
+          "total": 10,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 10
+        },
+        ".htm": {
+          "total": 10,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 10
+        },
+        ".gif": {
+          "total": 8,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 8
+        },
+        ".wmf": {
+          "total": 2,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 2
+        },
+        ".pat": {
+          "total": 1,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 1
+        },
+        ".blf": {
+          "total": 2,
+          "pristine": 1,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 1
+        },
+        ".reg": {
+          "total": 1,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 1
+        },
+        ".etl": {
+          "total": 12,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 12
+        },
+        ".sqm": {
+          "total": 4,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 4
+        },
+        ".bin": {
+          "total": 9,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 9
+        },
+        ".wmd": {
+          "total": 2,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 2
+        },
+        ".bak": {
+          "total": 1,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 1
+        },
+        ".fee": {
+          "total": 8,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 8
+        },
+        ".dtd": {
+          "total": 1,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 1
+        },
+        ".pri": {
+          "total": 2,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 2
+        },
+        ".dll": {
+          "total": 204,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 204
+        },
+        ".html": {
+          "total": 3,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 3
+        },
+        ".wsf": {
+          "total": 1,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 1
+        },
+        ".mui": {
+          "total": 158,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 158
+        },
+        ".png": {
+          "total": 55,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 55
+        },
+        ".svg": {
+          "total": 36,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 36
+        },
+        ".ttf": {
+          "total": 1,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 1
+        },
+        ".qml": {
+          "total": 13,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 13
+        },
+        ".qmltypes": {
+          "total": 6,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 6
+        },
+        ".adml": {
+          "total": 18,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 18
+        },
+        ".admx": {
+          "total": 2,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 2
+        },
+        ".bat": {
+          "total": 1,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 1
+        },
+        ".odl": {
+          "total": 20,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 20
+        },
+        ".aodl": {
+          "total": 26,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 26
+        },
+        ".session": {
+          "total": 6,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 6
+        },
+        ".log2": {
+          "total": 5,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 5
+        },
+        ".log1": {
+          "total": 16,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 16
+        },
+        ".regtrans-ms": {
+          "total": 1,
+          "pristine": 1,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 0
+        },
+        ".css": {
+          "total": 1,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 1
+        },
+        ".json": {
+          "total": 2,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 2
+        },
+        ".jfm": {
+          "total": 5,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 5
+        },
+        ".db-shm": {
+          "total": 2,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 2
+        },
+        ".wpl": {
+          "total": 12,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 12
+        },
+        ".vpol": {
+          "total": 1,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 1
+        },
+        ".tbres": {
+          "total": 1,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 1
+        },
+        ".bmp": {
+          "total": 2,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 2
+        },
+        ".nuspec": {
+          "total": 1,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 1
+        },
+        ".psm1": {
+          "total": 3,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 3
+        },
+        ".ps1": {
+          "total": 47,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 47
+        },
+        ".manifest": {
+          "total": 2,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 2
+        },
+        ".ignore": {
+          "total": 1,
+          "pristine": 1,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 0
+        },
+        ".cmd": {
+          "total": 1,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 1
+        },
+        ".psmdcp": {
+          "total": 1,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 1
+        },
+        ".msi": {
+          "total": 1,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 1
+        },
+        ".pma": {
+          "total": 2,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 2
+        },
+        ".index": {
+          "total": 4,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 4
+        },
+        ".schema": {
+          "total": 2,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 2
+        },
+        ".csg": {
+          "total": 4,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 4
+        },
+        ".ft": {
+          "total": 3,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 3
+        },
+        ".cab": {
+          "total": 3,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 3
+        },
+        ".man": {
+          "total": 1,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 1
+        },
+        ".up_meta": {
+          "total": 1,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 1
+        },
+        ".edb": {
+          "total": 3,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 3
+        },
+        ".sqlite-shm": {
+          "total": 1,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 1
+        },
+        ".sqlite": {
+          "total": 1,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 1
+        },
+        ".sqlite-wal": {
+          "total": 1,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 1
+        },
+        ".pak": {
+          "total": 51,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 51
+        },
+        ".sig": {
+          "total": 2,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 2
+        },
+        ".ver": {
+          "total": 1,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 1
+        },
+        ".lic": {
+          "total": 1,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 1
+        },
+        ".sst": {
+          "total": 1,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 1
+        },
+        ".cdp": {
+          "total": 2,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 2
+        },
+        ".cdpresource": {
+          "total": 1,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 1
+        },
+        ".jtx": {
+          "total": 1,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 1
+        },
+        ".vol": {
+          "total": 1,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 1
+        },
+        ".jcp": {
+          "total": 1,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 1
+        },
+        ".xsl": {
+          "total": 1,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 1
+        },
+        ".lock": {
+          "total": 1,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 1
+        },
+        ".val": {
+          "total": 1,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 1
+        },
+        ".idx": {
+          "total": 1,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 1
+        }
+      }
+    },
+    "Pictures": {
+      "total": 25,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 25,
+      "extensions": {
+        ".jpg": {
+          "total": 21,
+          "lost": 21
+        },
+        ".ini": {
+          "total": 3,
+          "lost": 3,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0
+        },
+        ".jso": {
+          "total": 1,
+          "lost": 1
+        }
+      }
+    },
+    "Desktop": {
+      "total": 158,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 158,
+      "extensions": {
+        ".pdf": {
+          "total": 47,
+          "lost": 47,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0
+        },
+        ".doc": {
+          "total": 3,
+          "lost": 3
+        },
+        ".lnk": {
+          "total": 2,
+          "lost": 2
+        },
+        ".ini": {
+          "total": 1,
+          "lost": 1
+        },
+        ".dum": {
+          "total": 100,
+          "lost": 100,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0
+        },
+        ".jpg": {
+          "total": 5,
+          "lost": 5,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0
+        }
+      }
+    },
+    "FAVORITE": {
+      "total": 20,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 20,
+      "extensions": {
+        ".url": {
+          "total": 18,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 18
+        },
+        ".ini": {
+          "total": 2,
+          "pristine": 0,
+          "replica": 0,
+          "replica_full": 0,
+          "lost": 2
+        }
+      }
+    },
+    "DOWNLOAD": {
+      "total": 16,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 16,
+      "extensions": {
+        ".pdf": {
+          "total": 11,
+          "lost": 11
+        },
+        ".exe": {
+          "total": 4,
+          "lost": 4
+        },
+        ".ini": {
+          "total": 1,
+          "lost": 1
+        }
+      }
+    },
+    "DOCUMENT": {
+      "total": 21,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 21,
+      "extensions": {
+        ".pdf": {
+          "total": 13,
+          "lost": 13
+        },
+        ".jpg": {
+          "total": 5,
+          "lost": 5
+        },
+        ".doc": {
+          "total": 3,
+          "lost": 3
+        }
+      }
+    },
+    "Music": {
+      "total": 5,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 5,
+      "extensions": {
+        ".mp3": {
+          "total": 4,
+          "lost": 4
+        },
+        ".ini": {
+          "total": 1,
+          "lost": 1
+        }
+      }
+    },
+    "Links": {
+      "total": 5,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 5,
+      "extensions": {
+        ".lnk": {
+          "total": 4,
+          "lost": 4
+        },
+        ".ini": {
+          "total": 1,
+          "lost": 1
+        }
+      }
+    },
+    "Videos": {
+      "total": 5,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 5,
+      "extensions": {
+        ".mp4": {
+          "total": 4,
+          "lost": 4
+        },
+        ".ini": {
+          "total": 1,
+          "lost": 1
+        }
+      }
+    },
+    "Documents": {
+      "total": 1,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 1,
+      "extensions": {
+        ".ini": {
+          "total": 1,
+          "lost": 1
+        }
+      }
+    },
+    "SAVED_GA": {
+      "total": 1,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 1,
+      "extensions": {
+        ".ini": {
+          "total": 1,
+          "lost": 1
+        }
+      }
+    },
+    "Searches": {
+      "total": 4,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 4,
+      "extensions": {
+        ".search-ms": {
+          "total": 1,
+          "lost": 1
+        },
+        ".ini": {
+          "total": 1,
+          "lost": 1
+        },
+        ".searchconnector-ms": {
+          "total": 1,
+          "lost": 1
+        },
+        ".sea": {
+          "total": 1,
+          "lost": 1
+        }
+      }
+    },
+    "_SSH": {
+      "total": 1,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 1,
+      "extensions": {
+        "": {
+          "total": 1,
+          "lost": 1
+        }
+      }
+    },
+    "Favorites": {
+      "total": 2,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 2,
+      "extensions": {
+        ".url": {
+          "total": 1,
+          "lost": 1
+        },
+        ".ini": {
+          "total": 1,
+          "lost": 1
+        }
+      }
+    },
+    "Contacts": {
+      "total": 2,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 2,
+      "extensions": {
+        ".ini": {
+          "total": 1,
+          "lost": 1
+        },
+        ".con": {
+          "total": 1,
+          "lost": 1
+        }
+      }
+    },
+    "OneDrive": {
+      "total": 1,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 1,
+      "extensions": {
+        ".ini": {
+          "total": 1,
+          "lost": 1
+        }
+      }
+    },
+    "3D Objects": {
+      "total": 1,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 1,
+      "extensions": {
+        ".ini": {
+          "total": 1,
+          "lost": 1
+        }
+      }
+    }
+  },
+  "extensions": {
+    ".ini": {
+      "total": 54,
+      "lost": 54,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0
+    },
+    ".log1": {
+      "total": 17,
+      "lost": 17,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0
+    },
+    ".regtrans-ms": {
+      "total": 2,
+      "pristine": 2,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 0
+    },
+    ".dat": {
+      "total": 81,
+      "lost": 81,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0
+    },
+    ".reg": {
+      "total": 2,
+      "lost": 2,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0
+    },
+    ".blf": {
+      "total": 4,
+      "lost": 2,
+      "pristine": 2,
+      "replica": 0,
+      "replica_full": 0
+    },
+    "": {
+      "total": 319,
+      "lost": 319,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0
+    },
+    ".jpg": {
+      "total": 52,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 52
+    },
+    ".lnk": {
+      "total": 75,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 75
+    },
+    ".mapimail": {
+      "total": 1,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 1
+    },
+    ".automaticdestinations-ms": {
+      "total": 6,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 6
+    },
+    ".customdestinations-ms": {
+      "total": 4,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 4
+    },
+    ".library-ms": {
+      "total": 6,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 6
+    },
+    ".dic": {
+      "total": 1,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 1
+    },
+    ".txt": {
+      "total": 72,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 72
+    },
+    ".bac": {
+      "total": 3,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 3
+    },
+    ".log": {
+      "total": 63,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 63
+    },
+    ".jso": {
+      "total": 29,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 29
+    },
+    ".fin": {
+      "total": 4,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 4
+    },
+    ".pb": {
+      "total": 5,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 5
+    },
+    ".tmp": {
+      "total": 13,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 13
+    },
+    ".zip": {
+      "total": 4,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 4
+    },
+    ".aut": {
+      "total": 3,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 3
+    },
+    ".cus": {
+      "total": 7,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 7
+    },
+    ".lib": {
+      "total": 4,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 4
+    },
+    ".des": {
+      "total": 1,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 1
+    },
+    ".zfs": {
+      "total": 1,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 1
+    },
+    ".old": {
+      "total": 1,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 1
+    },
+    ".ldb": {
+      "total": 1,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 1
+    },
+    ".blo": {
+      "total": 3,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 3
+    },
+    ".con": {
+      "total": 5,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 5
+    },
+    ".cch": {
+      "total": 1,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 1
+    },
+    ".sql": {
+      "total": 17,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 17
+    },
+    ".db": {
+      "total": 42,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 42
+    },
+    ".lz4": {
+      "total": 1,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 1
+    },
+    ".gz": {
+      "total": 1,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 1
+    },
+    ".js": {
+      "total": 5,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 5
+    },
+    ".moz": {
+      "total": 1,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 1
+    },
+    ".xml": {
+      "total": 18,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 18
+    },
+    ".ico": {
+      "total": 24,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 24
+    },
+    ".exe": {
+      "total": 40,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 40
+    },
+    ".config": {
+      "total": 2,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 2
+    },
+    ".oea": {
+      "total": 3,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 3
+    },
+    ".chk": {
+      "total": 5,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 5
+    },
+    ".jrs": {
+      "total": 3,
+      "pristine": 0,
+      "replica": 1,
+      "replica_full": 2,
+      "lost": 2
+    },
+    ".msm": {
+      "total": 2,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 2
+    },
+    ".emf": {
+      "total": 10,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 10
+    },
+    ".htm": {
+      "total": 10,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 10
+    },
+    ".gif": {
+      "total": 8,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 8
+    },
+    ".wmf": {
+      "total": 2,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 2
+    },
+    ".pat": {
+      "total": 1,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 1
+    },
+    ".etl": {
+      "total": 12,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 12
+    },
+    ".sqm": {
+      "total": 4,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 4
+    },
+    ".bin": {
+      "total": 9,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 9
+    },
+    ".wmd": {
+      "total": 2,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 2
+    },
+    ".bak": {
+      "total": 1,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 1
+    },
+    ".fee": {
+      "total": 8,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 8
+    },
+    ".dtd": {
+      "total": 1,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 1
+    },
+    ".pri": {
+      "total": 2,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 2
+    },
+    ".dll": {
+      "total": 204,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 204
+    },
+    ".html": {
+      "total": 3,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 3
+    },
+    ".wsf": {
+      "total": 1,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 1
+    },
+    ".mui": {
+      "total": 158,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 158
+    },
+    ".png": {
+      "total": 55,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 55
+    },
+    ".svg": {
+      "total": 36,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 36
+    },
+    ".ttf": {
+      "total": 1,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 1
+    },
+    ".qml": {
+      "total": 13,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 13
+    },
+    ".qmltypes": {
+      "total": 6,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 6
+    },
+    ".adml": {
+      "total": 18,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 18
+    },
+    ".admx": {
+      "total": 2,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 2
+    },
+    ".bat": {
+      "total": 1,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 1
+    },
+    ".odl": {
+      "total": 20,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 20
+    },
+    ".aodl": {
+      "total": 26,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 26
+    },
+    ".session": {
+      "total": 6,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 6
+    },
+    ".log2": {
+      "total": 5,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 5
+    },
+    ".css": {
+      "total": 1,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 1
+    },
+    ".json": {
+      "total": 2,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 2
+    },
+    ".jfm": {
+      "total": 5,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 5
+    },
+    ".db-shm": {
+      "total": 2,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 2
+    },
+    ".wpl": {
+      "total": 12,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 12
+    },
+    ".vpol": {
+      "total": 1,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 1
+    },
+    ".tbres": {
+      "total": 1,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 1
+    },
+    ".bmp": {
+      "total": 2,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 2
+    },
+    ".nuspec": {
+      "total": 1,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 1
+    },
+    ".psm1": {
+      "total": 3,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 3
+    },
+    ".ps1": {
+      "total": 47,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 47
+    },
+    ".manifest": {
+      "total": 2,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 2
+    },
+    ".ignore": {
+      "total": 1,
+      "pristine": 1,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 0
+    },
+    ".cmd": {
+      "total": 1,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 1
+    },
+    ".psmdcp": {
+      "total": 1,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 1
+    },
+    ".msi": {
+      "total": 1,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 1
+    },
+    ".pma": {
+      "total": 2,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 2
+    },
+    ".index": {
+      "total": 4,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 4
+    },
+    ".schema": {
+      "total": 2,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 2
+    },
+    ".csg": {
+      "total": 4,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 4
+    },
+    ".ft": {
+      "total": 3,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 3
+    },
+    ".cab": {
+      "total": 3,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 3
+    },
+    ".man": {
+      "total": 1,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 1
+    },
+    ".up_meta": {
+      "total": 1,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 1
+    },
+    ".edb": {
+      "total": 3,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 3
+    },
+    ".sqlite-shm": {
+      "total": 1,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 1
+    },
+    ".sqlite": {
+      "total": 1,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 1
+    },
+    ".sqlite-wal": {
+      "total": 1,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 1
+    },
+    ".pak": {
+      "total": 51,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 51
+    },
+    ".sig": {
+      "total": 2,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 2
+    },
+    ".ver": {
+      "total": 1,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 1
+    },
+    ".lic": {
+      "total": 1,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 1
+    },
+    ".sst": {
+      "total": 1,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 1
+    },
+    ".cdp": {
+      "total": 2,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 2
+    },
+    ".cdpresource": {
+      "total": 1,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 1
+    },
+    ".jtx": {
+      "total": 1,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 1
+    },
+    ".vol": {
+      "total": 1,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 1
+    },
+    ".jcp": {
+      "total": 1,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 1
+    },
+    ".xsl": {
+      "total": 1,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 1
+    },
+    ".lock": {
+      "total": 1,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 1
+    },
+    ".val": {
+      "total": 1,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 1
+    },
+    ".idx": {
+      "total": 1,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 1
+    },
+    ".pdf": {
+      "total": 71,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 71
+    },
+    ".doc": {
+      "total": 6,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 6
+    },
+    ".dum": {
+      "total": 100,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 100
+    },
+    ".url": {
+      "total": 19,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 19
+    },
+    ".mp3": {
+      "total": 4,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 4
+    },
+    ".mp4": {
+      "total": 4,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 4
+    },
+    ".search-ms": {
+      "total": 1,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 1
+    },
+    ".searchconnector-ms": {
+      "total": 1,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 1
+    },
+    ".sea": {
+      "total": 1,
+      "pristine": 0,
+      "replica": 0,
+      "replica_full": 0,
+      "lost": 1
+    }
+  }
+}
