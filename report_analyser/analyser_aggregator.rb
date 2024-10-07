@@ -23,7 +23,14 @@ def aggregate_json(directory)
 
     # Controlla se contiene le chiavi richieste
     if data.key?("ransomware") && data.key?("ranflood_delay") && data.key?("strategy") && data.key?("root")
-      key = "#{data['ransomware']}-#{data['ranflood_delay']}-#{data['strategy']}-#{data['root']}"
+
+      # Se la chiave è NONE significa che non c'è Ranflood a contrasto, e quindi aggrego tutti i risultati insieme
+      if data["strategy"] == "NONE"
+        key = "#{data['ransomware']}-NONE-NONE-#{data['root']}"
+      else
+        # Se c'è una strategia invece aggrego in base alle seguenti chiavi
+        key = "#{data['ransomware']}-#{data['ranflood_delay']}-#{data['strategy']}-#{data['root']}"
+      end
 
       grouped_data[key] ||= {
         "ransomware" => data["ransomware"],
