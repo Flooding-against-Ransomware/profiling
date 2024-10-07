@@ -3,3 +3,8 @@
 *.pdf
 analysis visualiser/_result.json
 /analysis visualiser/aggregated_reports
+fantom/base.json
+fantom/report0.json
+fantom/report1.json
+fantom/report2.json
+fantom/report3.json
