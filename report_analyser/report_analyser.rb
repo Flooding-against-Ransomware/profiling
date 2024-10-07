@@ -64,20 +64,41 @@ def analizza_radice(data)
     "extensions" => Hash.new { |hash, key| hash[key] = Hash.new(0) }
   }
 
+  conteggi_fold = {
+    "pristine" => 0,
+    "replica" => 0,
+    "replica_full" => 0,
+    "lost" => 0
+  }
+  conteggi_ext = {
+    "pristine" => 0,
+    "replica" => 0,
+    "replica_full" => 0,
+    "lost" => 0,
+  }
+
   # Analizza i file nel livello corrente
   if data["files"].is_a?(Hash)
     data["files"].each do |k, v|
       ext = File.extname(v["name"]).downcase
       results["total"] += 1
+      conteggi_fold[v["status"]] += 1
       results[v["status"]] += 1
       results["extensions"][ext]["total"] += 1
       results["extensions"][ext][v["status"]] += 1
+      conteggi_ext[v["status"]] += 1
       if v["status"] == "replica"
         results["replica_full"] += v["replicas"].length
         results["extensions"][ext]["replica_full"] += v["replicas"].length
       end
+
+      if conteggi_fold[v["status"]] != conteggi_ext[v["status"]]
+        puts "Conteggio disallineato #{k}"
+      end
     end
   end
+
+
 
   # Analizza le cartelle nel livello corrente
   if data["folders"].is_a?(Hash)
