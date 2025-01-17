@@ -1,6 +1,6 @@
 =begin
 
- * Copyright 2024 (C) by Saverio Giallorenzo <saverio.giallorenzo@gmail.com>  *
+ * Copyright 2025 (C) by Saverio Giallorenzo <saverio.giallorenzo@gmail.com>  *
  * and Simone Melloni <melloni.simone@gmail.com>                              *
  *                                                                            *
  * This program is free software; you can redistribute it and/or modify       *
