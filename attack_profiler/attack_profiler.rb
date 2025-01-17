@@ -1,6 +1,6 @@
 =begin
 
- * Copyright 2024 (C) by Simone Melloni <melloni.simone@gmail.com>            *
+ * Copyright 2025 (C) by Simone Melloni <melloni.simone@gmail.com>            *
  *                                                                            *
  * This program is free software; you can redistribute it and/or modify       *
  * it under the terms of the GNU Library General Public License as            *
@@ -181,15 +181,11 @@ nome_file_nuovo = "#{nome_file_senza_estensione}-report.json"
 nome_file_output = File.join(directory, nome_file_nuovo);
 
 struct_base = crea_struct(file_input_1)
-# puts struct_base
-# puts "-----------------------"
-struct_contrasto = crea_struct(file_input_2)
-# puts struct_contrasto
 
-# puts "-----------------------"
+struct_contrasto = crea_struct(file_input_2)
 
 struct_risultato = unisci_strutture(struct_base, struct_contrasto)
-# puts struct_risultato
+
 
 # elaborazione dell'hash in albero cartelle - file
 struct_albero = crea_albero(struct_risultato)

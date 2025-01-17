@@ -1,3 +1,29 @@
+=begin
+
+ * Copyright 2025 (C) by Saverio Giallorenzo <saverio.giallorenzo@gmail.com>  *
+ * and Simone Melloni <melloni.simone@gmail.com>                              *
+ *                                                                            *
+ * This program is free software; you can redistribute it and/or modify       *
+ * it under the terms of the GNU Library General Public License as            *
+ * published by the Free Software Foundation; either version 2 of the         *
+ * License, or (at your option) any later version.                            *
+ *                                                                            *
+ * This program is distributed in the hope that it will be useful,            *
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of             *
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the              *
+ * GNU General Public License for more details.                               *
+ *                                                                            *
+ * You should have received a copy of the GNU Library General Public          *
+ * License along with this program; if not, write to the                      *
+ * Free Software Foundation, Inc.,                                            *
+ * 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.                  *
+ *                                                                            *
+ * For details about the authors of this software, see the AUTHORS file.      *
+
+ *  Ranflood - https://ranflood.netlify.app/                                  *
+
+=end
+
 require 'json'
 require 'pathname'
 
@@ -5,8 +31,6 @@ require 'pathname'
 def standard_deviation(values,avg)
   return 0 if values.empty?
   
-  # variance = values.map { |v| (v - avg)**2 }.sum / values.size.to_f
-
   sum_of_squares = values.map { |v| (v - avg)**2 }.sum # diff di ogni elemento rispetto alla media elevato al quadrato, poi somma totale
   variance = sum_of_squares / (values.size - 1).to_f  # Correzione di Bessel
 
@@ -176,29 +200,6 @@ def aggregate_json(directory)
         output["folders"][folder]["#{k}_avg"] = avg
         output["folders"][folder]["#{k}_stddev"] = stddev
       end
-
-      # Aggrega i dati delle estensioni nelle cartelle
-      # output["folders"][folder]["extensions"] = {}
-      # folder_data["extensions"].each do |ext, ext_data|
-      #   output["folders"][folder]["extensions"][ext] = {}
-
-      #   ["total", "pristine", "replica", "replica_full", "lost"].each do |k|
-      #     values = ext_data[k].compact  # Rimuovi eventuali valori nil
-      #     next if values.empty?
-
-      #     # valorizzare la chiave mancante con 0 in modo da non dare errori nei calcoli successivi
-      #     ext_data[k] = [0] if values.empty?
-
-      #     sum = values.sum 
-      #     avg = sum / values.size.to_f
-      #     stddev = standard_deviation(values,avg)
-
-      #     output["folders"][folder]["extensions"][ext][k] = sum
-      #     output["folders"][folder]["extensions"][ext]["#{k}_avg"] = avg
-      #     output["folders"][folder]["extensions"][ext]["#{k}_stddev"] = stddev
-      #   end
-      # end # metriche estensioni della cartella
-
     end # metriche cartella
 
 

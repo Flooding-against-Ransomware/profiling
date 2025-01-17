@@ -1,6 +1,6 @@
 =begin
 
- * Copyright 2024 (C) by Saverio Giallorenzo <saverio.giallorenzo@gmail.com>  *
+ * Copyright 2025 (C) by Saverio Giallorenzo <saverio.giallorenzo@gmail.com>  *
  * and Simone Melloni <melloni.simone@gmail.com>                              *
  *                                                                            *
  * This program is free software; you can redistribute it and/or modify       *
@@ -175,11 +175,6 @@ def analizza_cartella_ricorsivamente(cartella)
         folder_results["replica_full"] += v["replicas"].length
         folder_results["extensions"][ext]["replica_full"] += v["replicas"].length
       end
-
-      # Stampa il checksum se lo status è 'pristine'
-      # if v["status"] == "pristine"
-      #   puts "Checksum for pristine file: #{v['checksum']}"
-      # end
 
     end
   end
