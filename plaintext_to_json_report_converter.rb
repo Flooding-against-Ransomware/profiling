@@ -1,6 +1,6 @@
 require 'json'
 
-Dir.glob("*.base") do | file |
+Dir.glob("*.report") do | file |
   json = []
   File.open( file, 'r' ).each_line do | line |
     line = line.split(",")
