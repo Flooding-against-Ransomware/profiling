@@ -3,6 +3,7 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 import scipy
+import math
 import numpy as np
 from collections import defaultdict
 import sys, os
@@ -89,30 +90,37 @@ folder_sizes = {
 # find XX% largest folders
 threshold_size_percentage = 0.2
 threshold_top_size_percentage = 0.05
-top_largest_folders = set( sorted(
+top_largest_folders = sorted(
     folder_sizes,
     key=folder_sizes.get,
     reverse=True
-)[:int(threshold_size_percentage * len(folder_sizes))] )
-top_very_largest_folders = set( sorted(
+)[:int(threshold_size_percentage * len(folder_sizes))]
+important_folders = set( sorted(
     folder_sizes,
     key=folder_sizes.get,
     reverse=True
 )[:int(threshold_top_size_percentage * len(folder_sizes))] )
+
+user_folders = { "document", "documents", "desktop", "download", "downloads", "pictures", "picture", "video", "videos" }
+user_folders = { node for node in set( top_largest_folders ) if node.split('/')[-1].lower() in user_folders }
+important_folders = important_folders.union( user_folders )
+
+# top_largest_folders.add( threshold_top_size_percentage. )
 # keep only the to XX% largest folders
 
-folder_nodes = [node for node in folder_nodes if node in top_largest_folders]
+folder_nodes = [node for node in folder_nodes if node in set( top_largest_folders ).union( important_folders ) ]
 
 nodes_to_remove = [n for n,_ in G.nodes(data=True) if not n in folder_nodes ]
 G.remove_nodes_from( nodes_to_remove )
 
 folder_labels = {}
+# important_folders.union( { os.path.join(root_path, folder) for folder in user_folders } )
 # Filter folders from ROOT to n-th nesting level
 for folder_node in folder_nodes:
     if folder_node == root_path:
         folder_labels[folder_node] = 'ROOT'
     else:
-        if folder_node in top_very_largest_folders:
+        if folder_node in important_folders:
             # Get the parent folder by removing the n-th component
             folder_name = folder_node.split('/')[-1]
             folder_labels[folder_node] = folder_name
@@ -128,14 +136,14 @@ for u, v in G_weighted.edges():
     weight = 1.0
     if u_type == v_type: # there cannot be file-file edges
 
-        min_size = min(folder_sizes[v],folder_sizes[u])
-        max_size = max(folder_sizes[v],folder_sizes[u])
+        u_index = top_largest_folders.index( u )+1
+        v_index = top_largest_folders.index( v )+1
 
-        size_ratio = (max_size-min_size)/max_size
-
-        # smaller weight -> longer springs -> farther
-        max_w = 3.0
-        weight = max_w # - size_ratio * max_w
+        if root_path in { u, v }:
+            weight = 0.01
+        else:
+            weight = 0.05*math.log( u_index + v_index )
+        
     else: # file-to-folder
         size = 1.0
         if u_type == "folder":
@@ -195,7 +203,7 @@ for folder_node in folder_nodes:
     size = (file_count / total_file_count) * 25000
     nx.draw_networkx_nodes(G, pos, nodelist=[folder_node],
                             node_color=[color], node_size=size, 
-                            alpha=1, ax=ax, node_shape='o',
+                            alpha=.75, ax=ax, node_shape='o',
                             edgecolors='black', linewidths=1)
 
 # # Draw folder labels BELOW nodes in BLACK

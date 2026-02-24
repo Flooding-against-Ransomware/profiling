@@ -1,10 +1,8 @@
 # Requirements
 
-`poetry` for Python installed and available in the execution environment.
-
 # Install dependencies
 
-`poetry install`
+`uv pip install numpy matplotlib`
 
 # Run
 

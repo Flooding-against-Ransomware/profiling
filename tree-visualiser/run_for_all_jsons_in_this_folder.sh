@@ -16,7 +16,7 @@ fi
 
 for json_file in "${JSON_FILES[@]}"; do
     echo "Processing: $json_file"
-    uv run python tree_visualiser.py "$json_file"
+    uv run python tree_visualiser.py "$json_file" &
     if [ $? -ne 0 ]; then
         echo "Warning: failed on '$json_file', continuing..."
     fi

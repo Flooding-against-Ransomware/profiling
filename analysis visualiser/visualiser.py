@@ -76,11 +76,15 @@ def sunburst(nodes, colors=[(.5, .5, .5, 0.25),(.5, .5, .5, 0.5)], total=np.pi *
         ax.set_theta_zero_location('N')
         ax.set_axis_off()
 
+green = [(0.529, 0.878, 0.549, 0.5),(0.529, 0.878, 0.549, 0.75)]
+red = [(0.878, 0.529, 0.529, 0.5),(0.878, 0.529, 0.529, 0.75)]
+blue = [(0.529, 0.694, 0.878, 0.5),(0.529, 0.694, 0.878, 0.75)]
+
 colors = {}
-colors[ "pristine" ] = [(0.529, 0.694, 0.878, 0.5),(0.529, 0.694, 0.878, 0.75)]
-colors[ "replica" ] = [(0.529, 0.878, 0.549, 0.5),(0.529, 0.878, 0.549, 0.75)]
-colors[ "lost" ] = [(0.878, 0.529, 0.529, 0.5),(0.878, 0.529, 0.529, 0.75)]
-colors[ "total" ] = [(0.529, 0.694, 0.878, 0.5), (0.529, 0.878, 0.549, 0.5), (0.878, 0.529, 0.529, 0.5)]
+colors[ "pristine" ] = green
+colors[ "lost" ] = red
+colors[ "replica" ] = blue
+colors[ "total" ] = [green[0], blue[0], red[0]]
 
 with open( "_result.json" ) as data:
     data = json.load( data )

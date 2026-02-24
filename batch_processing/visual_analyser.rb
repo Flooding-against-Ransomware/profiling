@@ -134,7 +134,7 @@ def analyse_file( path )
   json_content = JSON.generate( result )
   File.write( "_result.json", json_content )
   puts "Plotting results of #{path}"
-  `poetry run python visualiser.py`
+  `uv run python visualiser.py`
   
   puts "Done"
 end
